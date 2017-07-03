@@ -1,0 +1,8 @@
+/home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/Apogee.deps.json
+/home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/Apogee.runtimeconfig.json
+/home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/Apogee.runtimeconfig.dev.json
+/home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/Apogee.dll
+/home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/obj/Debug/netcoreapp1.1/Apogee.pdb
+/home/myvar/Desktop/GitHub/Apogee/Apogee/obj/Debug/netcoreapp1.1/Apogee.AssemblyInfo.cs
+/home/myvar/Desktop/GitHub/Apogee/Apogee/obj/Debug/netcoreapp1.1/Apogee.dll
+/home/myvar/Desktop/GitHub/Apogee/Apogee/obj/Debug/netcoreapp1.1/Apogee.pdb
