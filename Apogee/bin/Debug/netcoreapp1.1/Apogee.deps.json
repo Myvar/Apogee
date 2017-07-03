@@ -1,14 +1,185 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1",
-    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+    "signature": "9402976d8ca05e97e59a18f7e5eae9aedbf295e9"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v1.1": {
       "apogee/1.0.0": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.CSharp.Scripting": "2.3.0-beta2",
+          "Newtonsoft.Json": "10.0.3"
+        },
         "runtime": {
           "Apogee.dll": {}
+        }
+      },
+      "microsoft.codeanalysis.analyzers/1.1.0": {},
+      "microsoft.codeanalysis.common/2.3.0-beta2": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Analyzers": "1.1.0",
+          "System.Collections.Immutable": "1.3.1",
+          "System.Diagnostics.FileVersionInfo": "4.3.0",
+          "System.Diagnostics.StackTrace": "4.3.0",
+          "System.Reflection.Metadata": "1.4.2",
+          "System.Text.Encoding.CodePages": "4.3.0",
+          "System.ValueTuple": "4.3.0",
+          "System.Xml.XPath.XDocument": "4.3.0",
+          "System.Xml.XmlDocument": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.dll": {}
+        }
+      },
+      "microsoft.codeanalysis.csharp/2.3.0-beta2": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Common": "2.3.0-beta2"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.CSharp.dll": {}
+        }
+      },
+      "microsoft.codeanalysis.csharp.scripting/2.3.0-beta2": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.CSharp": "2.3.0-beta2",
+          "Microsoft.CodeAnalysis.Scripting.Common": "2.3.0-beta2"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.CSharp.Scripting.dll": {}
+        }
+      },
+      "microsoft.codeanalysis.scripting.common/2.3.0-beta2": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Common": "2.3.0-beta2",
+          "System.Collections.Immutable": "1.3.1",
+          "System.Diagnostics.StackTrace": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.Scripting.dll": {}
+        }
+      },
+      "newtonsoft.json/10.0.3": {
+        "dependencies": {
+          "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Runtime.Serialization.Formatters": "4.3.0",
+          "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Xml.XmlDocument": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+        }
+      },
+      "system.collections.immutable/1.3.1": {
+        "runtime": {
+          "lib/netstandard1.0/System.Collections.Immutable.dll": {}
+        }
+      },
+      "system.collections.nongeneric/4.3.0": {
+        "runtime": {
+          "lib/netstandard1.3/System.Collections.NonGeneric.dll": {}
+        }
+      },
+      "system.collections.specialized/4.3.0": {
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Collections.Specialized.dll": {}
+        }
+      },
+      "system.componentmodel.primitives/4.3.0": {
+        "runtime": {
+          "lib/netstandard1.0/System.ComponentModel.Primitives.dll": {}
+        }
+      },
+      "system.componentmodel.typeconverter/4.3.0": {
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.3.0",
+          "System.Collections.Specialized": "4.3.0",
+          "System.ComponentModel.Primitives": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.5/System.ComponentModel.TypeConverter.dll": {}
+        }
+      },
+      "system.diagnostics.fileversioninfo/4.3.0": {
+        "dependencies": {
+          "System.Reflection.Metadata": "1.4.2"
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.3/System.Diagnostics.FileVersionInfo.dll": {
+            "rid": "unix",
+            "assetType": "runtime"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Diagnostics.FileVersionInfo.dll": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        }
+      },
+      "system.diagnostics.stacktrace/4.3.0": {
+        "dependencies": {
+          "System.Reflection.Metadata": "1.4.2"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Diagnostics.StackTrace.dll": {}
+        }
+      },
+      "system.reflection.metadata/1.4.2": {
+        "dependencies": {
+          "System.Collections.Immutable": "1.3.1"
+        },
+        "runtime": {
+          "lib/netstandard1.1/System.Reflection.Metadata.dll": {}
+        }
+      },
+      "system.runtime.serialization.formatters/4.3.0": {
+        "dependencies": {
+          "System.Runtime.Serialization.Primitives": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.4/System.Runtime.Serialization.Formatters.dll": {}
+        }
+      },
+      "system.runtime.serialization.primitives/4.3.0": {
+        "runtime": {
+          "lib/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {}
+        }
+      },
+      "system.text.encoding.codepages/4.3.0": {
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.3/System.Text.Encoding.CodePages.dll": {
+            "rid": "unix",
+            "assetType": "runtime"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Text.Encoding.CodePages.dll": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        }
+      },
+      "system.valuetuple/4.3.0": {
+        "runtime": {
+          "lib/netstandard1.0/System.ValueTuple.dll": {}
+        }
+      },
+      "system.xml.xmldocument/4.3.0": {
+        "runtime": {
+          "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
+        }
+      },
+      "system.xml.xpath/4.3.0": {
+        "runtime": {
+          "lib/netstandard1.3/System.Xml.XPath.dll": {}
+        }
+      },
+      "system.xml.xpath.xdocument/4.3.0": {
+        "dependencies": {
+          "System.Xml.XPath": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       }
     }
@@ -18,6 +189,153 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "microsoft.codeanalysis.analyzers/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-G7QZ8qF0AotvvqZNWCyTBbqlaFK47xblbmY1zSzCqtFvpWroSka5xq57PNjsndA08thb/Eyt7i/NdM7EUisjTg==",
+      "path": "microsoft.codeanalysis.analyzers/1.1.0",
+      "hashPath": "microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512"
+    },
+    "microsoft.codeanalysis.common/2.3.0-beta2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nxUkGZ9+FFktJWL3BCHdSeHqUFrz+zKW4mFIwgzeZJtyPAUcvbPyxskf75LqTSUS7P3NZ8h0qne8IBCnluh5Zw==",
+      "path": "microsoft.codeanalysis.common/2.3.0-beta2",
+      "hashPath": "microsoft.codeanalysis.common.2.3.0-beta2.nupkg.sha512"
+    },
+    "microsoft.codeanalysis.csharp/2.3.0-beta2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jDHat5zxaML2YwqbHYef6gCk/+sGEUtfJib4GDMbOrgZUA0V44aJK//z4oHSP8prs2QJlrN4GVhJREN4h3V3NA==",
+      "path": "microsoft.codeanalysis.csharp/2.3.0-beta2",
+      "hashPath": "microsoft.codeanalysis.csharp.2.3.0-beta2.nupkg.sha512"
+    },
+    "microsoft.codeanalysis.csharp.scripting/2.3.0-beta2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wdE8HYaaoDwBZeBLbwIX2CeJkXII+wlDedRkGb4G3Qkc5zlR/DXSrWEckkoNCwPpwhQ6pzTIEVyv0O7yxHme4w==",
+      "path": "microsoft.codeanalysis.csharp.scripting/2.3.0-beta2",
+      "hashPath": "microsoft.codeanalysis.csharp.scripting.2.3.0-beta2.nupkg.sha512"
+    },
+    "microsoft.codeanalysis.scripting.common/2.3.0-beta2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Te/6hPyLni/7v6Ori9hW/GolBJ4RFVnidsQhUGXf8U/VZpYf5qWSwfLQGa+5+yWdWV2w47fzvaSBECg3TBt04w==",
+      "path": "microsoft.codeanalysis.scripting.common/2.3.0-beta2",
+      "hashPath": "microsoft.codeanalysis.scripting.common.2.3.0-beta2.nupkg.sha512"
+    },
+    "newtonsoft.json/10.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wBM7i7i3U2WX0ecor4zdVGvgrwFUjuigBoHKiL+nH39fCOpCPjBY3RDqJM32edvdyTAVdjzlccHsg41+/+zpSA==",
+      "path": "newtonsoft.json/10.0.3",
+      "hashPath": "newtonsoft.json.10.0.3.nupkg.sha512"
+    },
+    "system.collections.immutable/1.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n+AGX7zmiZumW9aggOkXaHzUeAS3EfeTErnkKCusyONUozbTv+kMb8VE36m+ldV6kF9g57G2c641KCdgH9E0pg==",
+      "path": "system.collections.immutable/1.3.1",
+      "hashPath": "system.collections.immutable.1.3.1.nupkg.sha512"
+    },
+    "system.collections.nongeneric/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-m7E/MwDixqXQmzCcGCOPCK49YZL2zC8sPMIKKf6KqfPy+2dsrZKgFbk3AJKGw9WrXSbcAEKdFp9LsGPo3G4iKg==",
+      "path": "system.collections.nongeneric/4.3.0",
+      "hashPath": "system.collections.nongeneric.4.3.0.nupkg.sha512"
+    },
+    "system.collections.specialized/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/kYKRU+HlUSwjTvms/Vvbm35aIMsN64co4b/fa4HKwbx/kvVJWe1VLeWJPNOCdDPNzl6jbM0OSuQRb6X9kLXog==",
+      "path": "system.collections.specialized/4.3.0",
+      "hashPath": "system.collections.specialized.4.3.0.nupkg.sha512"
+    },
+    "system.componentmodel.primitives/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GaOig3Rjolp3wVeLtB8urx2t9UeUWcaseymyilTaYiFIkm3Oqh0hWbRGjYVIwzwB5ZU8TS+M5/csOQYsT5SDyg==",
+      "path": "system.componentmodel.primitives/4.3.0",
+      "hashPath": "system.componentmodel.primitives.4.3.0.nupkg.sha512"
+    },
+    "system.componentmodel.typeconverter/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-f7twlfXPvMYDIPUaZqO9fxxSnPkve3Eodjf8TWo09ButJ+U59nMzvPTzHquGB5GlgOuBerZgdF5V3eNBwcH7Gw==",
+      "path": "system.componentmodel.typeconverter/4.3.0",
+      "hashPath": "system.componentmodel.typeconverter.4.3.0.nupkg.sha512"
+    },
+    "system.diagnostics.fileversioninfo/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-omCF64wzQ3Q2CeIqkD6lmmxeMZtGHUmzgFMPjfVaOsyqpR66p/JaZzManMw1s33osoAb5gqpncsjie67+yUPHQ==",
+      "path": "system.diagnostics.fileversioninfo/4.3.0",
+      "hashPath": "system.diagnostics.fileversioninfo.4.3.0.nupkg.sha512"
+    },
+    "system.diagnostics.stacktrace/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U0vvynbytZ0k+EVFjR+4eh6TMolDcoHa6MrDHoGMy9n/C7UTi9DMMuBJ19MDePm8zhNa8dp9QWlyEZVWovpYHg==",
+      "path": "system.diagnostics.stacktrace/4.3.0",
+      "hashPath": "system.diagnostics.stacktrace.4.3.0.nupkg.sha512"
+    },
+    "system.reflection.metadata/1.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KYPNMDrLB2R+G5JJiJ2fjBpihtktKVIjsirmyyv+VDo5rQkIR9BWeCYM1wDSzbQatWNZ/NQfPsQyTB1Ui3qBfQ==",
+      "path": "system.reflection.metadata/1.4.2",
+      "hashPath": "system.reflection.metadata.1.4.2.nupkg.sha512"
+    },
+    "system.runtime.serialization.formatters/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KT591AkTNFOTbhZlaeMVvfax3RqhH1EJlcwF50Wm7sfnBLuHiOeZRRKrr1ns3NESkM20KPZ5Ol/ueMq5vg4QoQ==",
+      "path": "system.runtime.serialization.formatters/4.3.0",
+      "hashPath": "system.runtime.serialization.formatters.4.3.0.nupkg.sha512"
+    },
+    "system.runtime.serialization.primitives/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OyTU2lgXxb24D9yNGhfSTt9URcd3wpDgGpN6NAjN5cv4goiSKq3FvY20SRvUw3s5G1L74q/hXLyQgPPE6TsObg==",
+      "path": "system.runtime.serialization.primitives/4.3.0",
+      "hashPath": "system.runtime.serialization.primitives.4.3.0.nupkg.sha512"
+    },
+    "system.text.encoding.codepages/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IRiEFUa5b/Gs5Egg8oqBVoywhtOeaO2KOx3j0RfcYY/raxqBuEK7NXRDgOwtYM8qbi+7S4RPXUbNt+ZxyY0/NQ==",
+      "path": "system.text.encoding.codepages/4.3.0",
+      "hashPath": "system.text.encoding.codepages.4.3.0.nupkg.sha512"
+    },
+    "system.valuetuple/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cNLEvBX3d6MMQRZe3SMFNukVbitDAEpVZO17qa0/2FHxZ7Y7PpFRpr6m2615XYM/tYYYf0B+WyHNujqIw8Luwg==",
+      "path": "system.valuetuple/4.3.0",
+      "hashPath": "system.valuetuple.4.3.0.nupkg.sha512"
+    },
+    "system.xml.xmldocument/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lJ8AxvkX7GQxpC6GFCeBj8ThYVyQczx2+f/cWHJU8tjS7YfI6Cv6bon70jVEgs2CiFbmmM8b9j1oZVx0dSI2Ww==",
+      "path": "system.xml.xmldocument/4.3.0",
+      "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
+    },
+    "system.xml.xpath/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-v1JQ5SETnQusqmS3RwStF7vwQ3L02imIzl++sewmt23VGygix04pEH+FCj1yWb+z4GDzKiljr1W7Wfvrx0YwgA==",
+      "path": "system.xml.xpath/4.3.0",
+      "hashPath": "system.xml.xpath.4.3.0.nupkg.sha512"
+    },
+    "system.xml.xpath.xdocument/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jw9oHHEIVW53mHY9PgrQa98Xo2IZ0ZjrpdOTmtvk+Rvg4tq7dydmxdNqUvJ5YwjDqhn75mBXWttWjiKhWP53LQ==",
+      "path": "system.xml.xpath.xdocument/4.3.0",
+      "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
     }
   }
 }
