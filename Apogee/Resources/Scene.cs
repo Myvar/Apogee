@@ -1,6 +1,6 @@
 ﻿namespace Apogee.Resources
 {
-    public class Scene
+    public class Scene : IResource
     {
         public virtual void Update()
         {

@@ -33,7 +33,7 @@ namespace Apogee
             Terminal.Log("Starting Game");
             
             //testing
-            var s = Assets.LoadScene("mainscene.cs");
+            var s = Assets.Load<Scene>("mainscene.cs");
             s.Update();
             
             return this;

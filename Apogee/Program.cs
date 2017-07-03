@@ -1,5 +1,4 @@
-﻿
-namespace Apogee
+﻿namespace Apogee
 {
     class Program
     {
