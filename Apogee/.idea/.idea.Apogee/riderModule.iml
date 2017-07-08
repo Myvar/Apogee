@@ -7,6 +7,16 @@
       <excludeFolder url="file://$MODULE_DIR$/../../obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../packages" />
     </content>
+    <content url="file://$MODULE_DIR$/../../../Apogee.OpenDDL">
+      <sourceFolder url="file://$MODULE_DIR$/../../../Apogee.OpenDDL" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../Apogee.OpenDDL/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../Apogee.OpenDDL/obj" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../Apogee.OpenGex">
+      <sourceFolder url="file://$MODULE_DIR$/../../../Apogee.OpenGex" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../Apogee.OpenGex/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../Apogee.OpenGex/obj" />
+    </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
