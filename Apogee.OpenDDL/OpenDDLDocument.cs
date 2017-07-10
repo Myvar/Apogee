@@ -4,7 +4,6 @@ using System.Globalization;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using Apogee.OpenDDL.Ast;
 
 namespace Apogee.OpenDDL
 {
@@ -48,12 +47,13 @@ namespace Apogee.OpenDDL
                     switch (state)
                     {
                         case 0:
-                            if (c == ' ')
+                            if (c == ' ' || c == '{')
                             {
                                 tmpStruct.Type = tmp.ToString().Trim();
                                 tmp.Clear();
 
                                 state = 1;
+                                if (c == '{') i--;
                             }
                             else
                             {
@@ -63,9 +63,11 @@ namespace Apogee.OpenDDL
                             break;
                         case 1:
                             tmp.Append(c);
-                            var x = tmp.ToString();
+
                             if (c == '{')
                             {
+                                var x = tmp.ToString();
+
                                 //we are done with header
                                 //or we have data type
                                 state = 2;
@@ -90,9 +92,19 @@ namespace Apogee.OpenDDL
                         case 2:
                             if (depth == 0)
                             {
-                                var inside = tmp.ToString();
-                                tmp.Clear();
-                                Parse(inside, ref tmpStruct);
+                                if (tmpStruct.IsPrimitive())
+                                {
+                                    tmpStruct.RawValue = tmp.ToString();
+                                    tmpStruct.ResolveValue();
+                                    tmp.Clear();
+                                }
+                                else
+                                {
+                                    var inside = tmp.ToString();
+                                    tmp.Clear();
+                                    Parse(inside, ref tmpStruct);
+                                }
+
                                 owner.Body.Add(tmpStruct);
 
                                 tmpStruct = new Structure();
@@ -124,7 +136,6 @@ namespace Apogee.OpenDDL
                             }
                             break;
                     }
-
                 }
                 else
                 {
@@ -135,28 +146,29 @@ namespace Apogee.OpenDDL
                 }
             }
 
-            try
+            if (state == 2)
             {
-                if (state == 2)
+                if (depth == 0)
                 {
-                    if (depth == 0)
+                    if (tmpStruct.IsPrimitive())
+                    {
+                        tmpStruct.RawValue = tmp.ToString();
+                        tmpStruct.ResolveValue();
+                        tmp.Clear();
+                    }
+                    else
                     {
                         var inside = tmp.ToString();
                         tmp.Clear();
                         Parse(inside, ref tmpStruct);
-                        Root.Body.Add(tmpStruct);
-                        tmpStruct = new Structure();
-                        state = 0;
                     }
+
+                    owner.Body.Add(tmpStruct);
+
+                    tmpStruct = new Structure();
+                    state = 0;
                 }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
-
         }
     }
 }
