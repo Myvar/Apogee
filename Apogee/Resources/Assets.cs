@@ -24,6 +24,11 @@ namespace Apogee.Resources
             {
                 return (T)LoadScene(file);
             }
+            
+            if (typeof(T) == typeof(Model))
+            {
+                return (T)Model.LoadModel(Path.Combine(GameDirectory, file));
+            }
 
             return new T();
         }

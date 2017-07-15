@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v1.1": {
       "apogee/1.0.0": {
         "dependencies": {
+          "Apogee.OpenDDL": "1.0.0",
           "Microsoft.CodeAnalysis.CSharp.Scripting": "2.3.0-beta2",
           "Newtonsoft.Json": "10.0.3",
           "OpenTK.NETCore": "1.1.2737.6432"
@@ -191,6 +192,11 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "apogee.openddl/1.0.0": {
+        "runtime": {
+          "Apogee.OpenDDL.dll": {}
+        }
       }
     }
   },
@@ -353,6 +359,11 @@
       "sha512": "sha512-jw9oHHEIVW53mHY9PgrQa98Xo2IZ0ZjrpdOTmtvk+Rvg4tq7dydmxdNqUvJ5YwjDqhn75mBXWttWjiKhWP53LQ==",
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    },
+    "apogee.openddl/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

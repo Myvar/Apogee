@@ -8,4 +8,13 @@
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="OpenTK.NETCore" Version="1.1.2737.6432" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Apogee.OpenDDL\Apogee.OpenDDL.csproj">
+      <Project>{33E8C2E4-8935-4024-B2A7-49CB4DFB43D6}</Project>
+      <Name>Apogee.OpenDDL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Shaders" />
+  </ItemGroup>
 </Project>

@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apogee", "Apogee.csproj", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apogee.OpenDDL", "..\Apogee.OpenDDL\Apogee.OpenDDL.csproj", "{33E8C2E4-8935-4024-B2A7-49CB4DFB43D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apogee.OpenGex", "..\Apogee.OpenGex\Apogee.OpenGex.csproj", "{663977A3-59B9-4E49-BD83-5DE80EAD2F53}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{33E8C2E4-8935-4024-B2A7-49CB4DFB43D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33E8C2E4-8935-4024-B2A7-49CB4DFB43D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33E8C2E4-8935-4024-B2A7-49CB4DFB43D6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{663977A3-59B9-4E49-BD83-5DE80EAD2F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{663977A3-59B9-4E49-BD83-5DE80EAD2F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{663977A3-59B9-4E49-BD83-5DE80EAD2F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{663977A3-59B9-4E49-BD83-5DE80EAD2F53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

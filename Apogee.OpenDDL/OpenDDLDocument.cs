@@ -23,6 +23,54 @@ namespace Apogee.OpenDDL
             Root = root;
         }
 
+
+        public Structure GetStructureByType(string type)
+        {
+            return IterateByType(type, Root);
+        }
+        
+        public Structure GetStructureByID(string type)
+        {
+            return IterateByID(type, Root);
+        }
+
+        private Structure IterateByID(string type, Structure r)
+        {
+
+            if (type == r.Name)
+            {
+                return r;
+            }
+            
+            foreach (var structure in r.Body)
+            {
+                var z = IterateByID(type, structure);
+                if (z != null) return z;
+            }
+            
+
+            return null;
+        }
+        
+        private Structure IterateByType(string type, Structure r)
+        {
+
+            if (type == r.Type)
+            {
+                return r;
+            }
+            
+            foreach (var structure in r.Body)
+            {
+                var z = IterateByType(type, structure);
+                if (z != null) return z;
+            }
+            
+
+            return null;
+        }
+        
+        
         public void Parse(string s, ref Structure owner)
         {
             var tmp = new StringBuilder();

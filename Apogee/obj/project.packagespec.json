@@ -11,7 +11,11 @@
     ],
     "frameworks": {
       "netcoreapp1.1": {
-        "projectReferences": {}
+        "projectReferences": {
+          "/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenDDL/Apogee.OpenDDL.csproj": {
+            "projectPath": "/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenDDL/Apogee.OpenDDL.csproj"
+          }
+        }
       }
     }
   },

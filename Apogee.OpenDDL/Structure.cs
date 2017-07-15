@@ -157,6 +157,8 @@ namespace Apogee.OpenDDL
                         return float.Parse(value, fmt);
                     case "unsigned_int32":
                         return uint.Parse(value);
+                    case "ref":
+                        return value;
                 }
             }
 

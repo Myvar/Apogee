@@ -2468,6 +2468,19 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "Apogee.OpenDDL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.1",
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.1.2"
+        },
+        "compile": {
+          "bin/placeholder/Apogee.OpenDDL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Apogee.OpenDDL.dll": {}
+        }
       }
     }
   },
@@ -7560,10 +7573,16 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "Apogee.OpenDDL/1.0.0": {
+      "type": "project",
+      "path": "../Apogee.OpenDDL/Apogee.OpenDDL.csproj",
+      "msbuildProject": "../Apogee.OpenDDL/Apogee.OpenDDL.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v1.1": [
+      "Apogee.OpenDDL >= 1.0.0",
       "Microsoft.CodeAnalysis.CSharp.Scripting >= 2.3.0-beta2",
       "Microsoft.NETCore.App >= 1.1.2",
       "Newtonsoft.Json >= 10.0.3",
@@ -7586,7 +7605,11 @@
       ],
       "frameworks": {
         "netcoreapp1.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenDDL/Apogee.OpenDDL.csproj": {
+              "projectPath": "/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenDDL/Apogee.OpenDDL.csproj"
+            }
+          }
         }
       }
     },

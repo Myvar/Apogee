@@ -1,8 +1,0 @@
-/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenGex/bin/Debug/netcoreapp1.1/Apogee.OpenGex.deps.json
-/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenGex/bin/Debug/netcoreapp1.1/Apogee.OpenGex.runtimeconfig.json
-/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenGex/bin/Debug/netcoreapp1.1/Apogee.OpenGex.runtimeconfig.dev.json
-/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenGex/bin/Debug/netcoreapp1.1/Apogee.OpenGex.dll
-/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenGex/bin/Debug/netcoreapp1.1/obj/Debug/netcoreapp1.1/Apogee.OpenGex.pdb
-/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenGex/obj/Debug/netcoreapp1.1/Apogee.OpenGex.AssemblyInfo.cs
-/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenGex/obj/Debug/netcoreapp1.1/Apogee.OpenGex.dll
-/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenGex/obj/Debug/netcoreapp1.1/Apogee.OpenGex.pdb
