@@ -78,7 +78,7 @@ namespace Apogee
             {
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
-                m = Assets.Load<Model>("monkey.ogex");
+                m = Assets.Load<Model>("alucy.ogex");
                 sw.Stop();
                 Terminal.Log(sw.Elapsed.ToString());
             };

@@ -30,7 +30,7 @@ namespace Apogee.Engine.Core
 
         public bool GetMouseDown(MouseButton m) =>  _window.Mouse.GetState().IsButtonDown(m);
 
-        public void CenterMouse() =>  Mouse.SetPosition(_window.Location.X + _window.Width / 2, _window.Location.Y + _window.Height / 2);
+        public void CenterMouse() =>  Mouse.SetPosition(_window.Location.X + _window.Width / 2,_window.Location.Y +  _window.Height / 2);
 
         public Vector2f GetMouseDelta() => new Vector2f(_window.Mouse.X, _window.Mouse.Y).Sub(new Vector2f(_window.Width / 2, _window.Height / 2));
     }

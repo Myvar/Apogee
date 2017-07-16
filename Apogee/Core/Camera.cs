@@ -111,10 +111,12 @@ namespace Apogee.Core
         }
 
         private bool MouseLocker = false;
+        Vector3f mouse_delta;
+        MouseState current, previous;
 
         public void Input(Input i, double delta)
         {
-            float movAmt = (float)(10 * delta);
+            float movAmt = (float)(100 * delta);
 
             if (i.IsKeyDown(Key.W))
             {
@@ -141,34 +143,46 @@ namespace Apogee.Core
                 i.CenterMouse();
                 MouseLocker = Mouse.GetState().RightButton == ButtonState.Pressed;
                 i.MouseVisible(!MouseLocker);
+                previous = Mouse.GetState();
                 return;
             }
 
             MouseLocker = Mouse.GetState().RightButton == ButtonState.Pressed;
 
             i.MouseVisible(!MouseLocker);
-
+            
             if (MouseLocker)
             {
-                Vector2f deltaPos = i.GetMouseDelta();
-
-                bool rotY = deltaPos.X != 0;
-                bool rotX = deltaPos.Y != 0;
-
-                if (rotY)
-                {
-                    RotateY((float)OpenTK.MathHelper.DegreesToRadians(deltaPos.X * Sensitivity));
-                }
-                if (rotX)
-                {
-                    RotateX((float)OpenTK.MathHelper.DegreesToRadians(deltaPos.Y * Sensitivity));
-                }
-
-
                 i.CenterMouse();
+                
+                current = Mouse.GetState();
+                if (current != previous)
+                {
+                    // Mouse state has changed
+                    mouse_delta = new Vector3f(
+                        current.X - previous.X,
+                        current.Y - previous.Y,
+                        current.WheelPrecise - previous.WheelPrecise);
+                }
+                else
+                {
+                    mouse_delta = new Vector3f(0,0,0);
+                }
+                previous = current;
+                
+                
+               
+                    RotateY((float)OpenTK.MathHelper.DegreesToRadians(mouse_delta.X * Sensitivity));
+                
+                    RotateX((float)OpenTK.MathHelper.DegreesToRadians(mouse_delta.Y * Sensitivity));
+                
+
+
+               
             }
 
 
         }
+        
     }
 }

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1",
-    "signature": "c6f6601734cfe0dc008f0c42449813acd9a1db30"
+    "signature": "8f9f38bf13288f6638aa549af37e798568bdf215"
   },
   "compilationOptions": {},
   "targets": {
@@ -11,7 +11,7 @@
           "Apogee.OpenDDL": "1.0.0",
           "Microsoft.CodeAnalysis.CSharp.Scripting": "2.3.0-beta2",
           "Newtonsoft.Json": "10.0.3",
-          "OpenTK.NETCore": "1.1.2737.6432"
+          "OpenTK.NETCore": "1.1.2571.6431"
         },
         "runtime": {
           "Apogee.dll": {}
@@ -72,7 +72,7 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
-      "opentk.netcore/1.1.2737.6432": {
+      "opentk.netcore/1.1.2571.6431": {
         "dependencies": {
           "System.Collections.Specialized": "4.3.0",
           "System.ComponentModel.Primitives": "4.3.0"
@@ -248,12 +248,12 @@
       "path": "newtonsoft.json/10.0.3",
       "hashPath": "newtonsoft.json.10.0.3.nupkg.sha512"
     },
-    "opentk.netcore/1.1.2737.6432": {
+    "opentk.netcore/1.1.2571.6431": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-y6VoX68zOIJa7Q+N70G57CdvQFG3x7yQbCMZxKYZimS1GDgRsCs3Jlb+DaF9i3zx/IVvKfd3968qRh7058GEfQ==",
-      "path": "opentk.netcore/1.1.2737.6432",
-      "hashPath": "opentk.netcore.1.1.2737.6432.nupkg.sha512"
+      "sha512": "sha512-XXc+xTC5jSvnpr+XpbwUpzttAgYGW2ZNTZS9O0TYbu2h9J7SqrAt5OtBOZ0d4uhVZdzjExiXt8rO20CwahboZA==",
+      "path": "opentk.netcore/1.1.2571.6431",
+      "hashPath": "opentk.netcore.1.1.2571.6431.nupkg.sha512"
     },
     "system.collections.immutable/1.3.1": {
       "type": "package",

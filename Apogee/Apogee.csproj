@@ -6,7 +6,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="2.3.0-beta2" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="OpenTK.NETCore" Version="1.1.2737.6432" />
+    <PackageReference Include="OpenTK.NETCore" Version="1.1.2571.6431" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Apogee.OpenDDL\Apogee.OpenDDL.csproj">

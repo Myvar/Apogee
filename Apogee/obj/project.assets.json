@@ -453,7 +453,7 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
-      "OpenTK.NETCore/1.1.2737.6432": {
+      "OpenTK.NETCore/1.1.2571.6431": {
         "type": "package",
         "dependencies": {
           "Microsoft.Win32.Primitives": "4.0.1",
@@ -2476,10 +2476,10 @@
           "Microsoft.NETCore.App": "1.1.2"
         },
         "compile": {
-          "bin/placeholder/Apogee.OpenDDL.dll": {}
+          "bin/placeholder/netcoreapp1.1/Apogee.OpenDDL.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Apogee.OpenDDL.dll": {}
+          "bin/placeholder/netcoreapp1.1/Apogee.OpenDDL.dll": {}
         }
       }
     }
@@ -2916,14 +2916,14 @@
         "tools/install.ps1"
       ]
     },
-    "OpenTK.NETCore/1.1.2737.6432": {
-      "sha512": "y6VoX68zOIJa7Q+N70G57CdvQFG3x7yQbCMZxKYZimS1GDgRsCs3Jlb+DaF9i3zx/IVvKfd3968qRh7058GEfQ==",
+    "OpenTK.NETCore/1.1.2571.6431": {
+      "sha512": "XXc+xTC5jSvnpr+XpbwUpzttAgYGW2ZNTZS9O0TYbu2h9J7SqrAt5OtBOZ0d4uhVZdzjExiXt8rO20CwahboZA==",
       "type": "package",
-      "path": "opentk.netcore/1.1.2737.6432",
+      "path": "opentk.netcore/1.1.2571.6431",
       "files": [
         "lib/netstandard1.3/OpenTK.dll",
         "lib/netstandard1.3/OpenTK.xml",
-        "opentk.netcore.1.1.2737.6432.nupkg.sha512",
+        "opentk.netcore.1.1.2571.6431.nupkg.sha512",
         "opentk.netcore.nuspec"
       ]
     },
@@ -7586,7 +7586,7 @@
       "Microsoft.CodeAnalysis.CSharp.Scripting >= 2.3.0-beta2",
       "Microsoft.NETCore.App >= 1.1.2",
       "Newtonsoft.Json >= 10.0.3",
-      "OpenTK.NETCore >= 1.1.2737.6432"
+      "OpenTK.NETCore >= 1.1.2571.6431"
     ]
   },
   "packageFolders": {
@@ -7603,6 +7603,9 @@
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
+      "files": {
+        "lib/netcoreapp1.1/Apogee.dll": "/home/myvar/Desktop/GitHub/Apogee/Apogee/bin/placeholder/netcoreapp1.1/Apogee.dll"
+      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
@@ -7630,7 +7633,7 @@
           },
           "OpenTK.NETCore": {
             "target": "Package",
-            "version": "1.1.2737.6432"
+            "version": "1.1.2571.6431"
           }
         }
       }
