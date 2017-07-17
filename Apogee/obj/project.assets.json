@@ -2476,10 +2476,10 @@
           "Microsoft.NETCore.App": "1.1.2"
         },
         "compile": {
-          "bin/placeholder/netcoreapp1.1/Apogee.OpenDDL.dll": {}
+          "bin/placeholder/Apogee.OpenDDL.dll": {}
         },
         "runtime": {
-          "bin/placeholder/netcoreapp1.1/Apogee.OpenDDL.dll": {}
+          "bin/placeholder/Apogee.OpenDDL.dll": {}
         }
       }
     }
@@ -7603,9 +7603,6 @@
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
-      "files": {
-        "lib/netcoreapp1.1/Apogee.dll": "/home/myvar/Desktop/GitHub/Apogee/Apogee/bin/placeholder/netcoreapp1.1/Apogee.dll"
-      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {

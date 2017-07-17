@@ -116,7 +116,7 @@ namespace Apogee.Core
 
         public void Input(Input i, double delta)
         {
-            float movAmt = (float)(100 * delta);
+            float movAmt = (float) (10 * delta);
 
             if (i.IsKeyDown(Key.W))
             {
@@ -150,11 +150,11 @@ namespace Apogee.Core
             MouseLocker = Mouse.GetState().RightButton == ButtonState.Pressed;
 
             i.MouseVisible(!MouseLocker);
-            
+
             if (MouseLocker)
             {
                 i.CenterMouse();
-                
+
                 current = Mouse.GetState();
                 if (current != previous)
                 {
@@ -166,23 +166,14 @@ namespace Apogee.Core
                 }
                 else
                 {
-                    mouse_delta = new Vector3f(0,0,0);
+                    mouse_delta = new Vector3f(0, 0, 0);
                 }
                 previous = current;
-                
-                
-               
-                    RotateY((float)OpenTK.MathHelper.DegreesToRadians(mouse_delta.X * Sensitivity));
-                
-                    RotateX((float)OpenTK.MathHelper.DegreesToRadians(mouse_delta.Y * Sensitivity));
-                
 
+                RotateY(OpenTK.MathHelper.DegreesToRadians(mouse_delta.X * Sensitivity));
 
-               
+                RotateX(OpenTK.MathHelper.DegreesToRadians(mouse_delta.Y * Sensitivity));
             }
-
-
         }
-        
     }
 }

@@ -50,13 +50,9 @@ namespace Apogee
             GL.Enable(EnableCap.Texture2D);
         }
 
-        
-        Camera Camera;
 
-        private Model m;
-        Transform Transform;
-        Shader BasicShader;
-        
+        private Scene MainScene;
+
         /// <summary>
         /// Use this Method to start the game
         /// </summary>
@@ -64,26 +60,18 @@ namespace Apogee
         public GameEngine Start()
         {
             Terminal.Log("Starting Game");
-            Camera = new Camera(0.1f, 1000, Window.Width, Window.Height, 70, 10);
             
             //testing
-            //var s = Assets.Load<Scene>("mainscene.cs");
-            //s.Assets = Assets;
-            //s.Update();
-            BasicShader = new Shader("./Shaders/basic");
-            Transform = new Transform();
+            MainScene = Assets.Load<Scene>("mainscene.cs");
+            var en = this;
+            MainScene.LoadGameEngine(ref en);
             
             
-            Window.Load += (sender, args) =>
-            {
-                Stopwatch sw = new Stopwatch();
-                sw.Start();
-                m = Assets.Load<Model>("alucy.ogex");
-                sw.Stop();
-                Terminal.Log(sw.Elapsed.ToString());
-            };
-            Window.RenderFrame += new EventHandler<FrameEventArgs>(OnRender);
-            Window.UpdateFrame += new EventHandler<FrameEventArgs>(OnUpdate);
+            
+            
+            Window.Load += OnWindowOnLoad;
+            Window.RenderFrame += OnRender;
+            Window.UpdateFrame += OnUpdate;
            
             Input = new Input(Window);
             
@@ -97,7 +85,12 @@ namespace Apogee
 
             return this;
         }
-        
+
+        private void OnWindowOnLoad(object sender, EventArgs args)
+        {
+            MainScene.Load();
+        }
+
         public void Clear(Color c)
         {
             GL.ClearColor(c);
@@ -109,14 +102,8 @@ namespace Apogee
             Clear(Color.White);
 
             //Render
-            //Game.Render();
+            MainScene.Draw();
             
-            BasicShader.Apply();
-            BasicShader.Update(Transform.GetTranformation(), Camera.GetProjection() * Transform.GetTranformation());
-            BasicShader.SetUniform("viewPos", Camera.Position);
-            
-            m.Draw();
-
             //Gui
             //Game.Gui();
 
@@ -128,7 +115,9 @@ namespace Apogee
         {
             Window.Title = "Apogee Engine: " + Math.Round(Window.RenderFrequency) + " FPS";
 
-            Camera.Input(Input, fea.Time);
+            MainScene.Update(fea.Time);
+            
+            GL.Viewport(0, 0, Window.Size.Width, Window.Size.Height);
         }
     }
 }
