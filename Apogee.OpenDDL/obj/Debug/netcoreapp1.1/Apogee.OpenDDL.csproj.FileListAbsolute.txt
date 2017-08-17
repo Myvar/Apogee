@@ -5,4 +5,4 @@
 /home/myvar/Desktop/GitHub/Apogee/Apogee.OpenDDL/obj/Debug/netcoreapp1.1/Apogee.OpenDDL.AssemblyInfo.cs
 /home/myvar/Desktop/GitHub/Apogee/Apogee.OpenDDL/obj/Debug/netcoreapp1.1/Apogee.OpenDDL.dll
 /home/myvar/Desktop/GitHub/Apogee/Apogee.OpenDDL/obj/Debug/netcoreapp1.1/Apogee.OpenDDL.pdb
-/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenDDL/bin/Debug/netcoreapp1.1/obj/Debug/netcoreapp1.1/Apogee.OpenDDL.pdb
+/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenDDL/bin/Debug/netcoreapp1.1/Apogee.OpenDDL.pdb

@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v1.1": {
-      "apogee.openddl/1.0.0": {
+      "Apogee.OpenDDL/1.0.0": {
         "runtime": {
           "Apogee.OpenDDL.dll": {}
         }
@@ -14,7 +14,7 @@
     }
   },
   "libraries": {
-    "apogee.openddl/1.0.0": {
+    "Apogee.OpenDDL/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
