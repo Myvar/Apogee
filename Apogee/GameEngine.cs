@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using Apogee.Core;
 using Apogee.Engine.Core;
+using Apogee.Gui;
 using Apogee.Resources;
 using OpenTK;
 using OpenTK.Graphics.OpenGL4;
@@ -15,8 +17,9 @@ namespace Apogee
         public Assets Assets { get; set; }
         public GameWindow Window { get; set; }
         public Input Input { get; set; }
-        
-        
+        public GuiEngine GuiEngine { get; set; }
+
+
         /// <summary>
         /// Init the GameEngine
         /// </summary>
@@ -78,6 +81,10 @@ namespace Apogee
             
             InitOpenGL();
 
+            GuiEngine.Init(Window);
+
+            GuiEngine = new GuiEngine();
+            
             Window.TargetRenderFrequency = 400;
             Window.VSync = VSyncMode.Off;
             Window.Title = "Apogee Engine: --- FPS";
@@ -105,10 +112,13 @@ namespace Apogee
             MainScene.Draw();
             
             //Gui
-            //Game.Gui();
-
+            GuiEngine.Draw();
+            
             Window.SwapBuffers();
         }
+
+        
+        
         
         
         public void OnUpdate(object sender, FrameEventArgs fea)

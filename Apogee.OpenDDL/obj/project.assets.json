@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.1": {
       "Libuv/1.9.1": {
@@ -7045,28 +7045,15 @@
       "projectUniqueName": "/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenDDL/Apogee.OpenDDL.csproj",
       "projectName": "Apogee.OpenDDL",
       "projectPath": "/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenDDL/Apogee.OpenDDL.csproj",
-      "packagesPath": "/home/myvar/.nuget/packages/",
       "outputPath": "/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenDDL/obj/",
       "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "/home/myvar/.nuget/NuGet/NuGet.Config"
-      ],
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
-      "sources": {
-        "/home/myvar/.dotnet/NuGetFallbackFolder": {},
-        "https://api.nuget.org/v3/index.json": {}
-      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {}
         }
-      },
-      "warningProperties": {
-        "warnAsError": [
-          "NU1605"
-        ]
       }
     },
     "frameworks": {
@@ -7074,8 +7061,7 @@
         "dependencies": {
           "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "1.1.2",
-            "autoReferenced": true
+            "version": "1.1.2"
           }
         }
       }

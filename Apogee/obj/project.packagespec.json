@@ -26,6 +26,14 @@
           "target": "Package",
           "version": "1.1.2"
         },
+        "ImageSharp": {
+          "target": "Package",
+          "version": "1.0.0-alpha9-00182"
+        },
+        "ImageSharp.Drawing": {
+          "target": "Package",
+          "version": "1.0.0-alpha9-00177"
+        },
         "Microsoft.CodeAnalysis.CSharp.Scripting": {
           "target": "Package",
           "version": "2.3.0-beta2"
