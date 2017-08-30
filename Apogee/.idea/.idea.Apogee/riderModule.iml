@@ -12,6 +12,11 @@
       <excludeFolder url="file://$MODULE_DIR$/../../../Apogee.OpenDDL/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Apogee.OpenDDL/obj" />
     </content>
+    <content url="file://$MODULE_DIR$/../../../Editor">
+      <sourceFolder url="file://$MODULE_DIR$/../../../Editor" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../Editor/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../Editor/obj" />
+    </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

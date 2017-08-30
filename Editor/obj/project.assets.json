@@ -2613,6 +2613,26 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "Apogee/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.1",
+        "dependencies": {
+          "Apogee.OpenDDL": "1.0.0",
+          "ImGui.NET": "0.2.1",
+          "ImageSharp": "1.0.0-alpha9-00182",
+          "ImageSharp.Drawing": "1.0.0-alpha9-00177",
+          "Microsoft.CodeAnalysis.CSharp.Scripting": "2.3.0-beta2",
+          "Microsoft.NETCore.App": "1.1.2",
+          "Newtonsoft.Json": "10.0.3",
+          "OpenTK.NETCore": "1.1.2749.6433"
+        },
+        "compile": {
+          "bin/placeholder/Apogee.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Apogee.dll": {}
+        }
+      },
       "Apogee.OpenDDL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v1.1",
@@ -7871,6 +7891,11 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "Apogee/1.0.0": {
+      "type": "project",
+      "path": "../Apogee/Apogee.csproj",
+      "msbuildProject": "../Apogee/Apogee.csproj"
+    },
     "Apogee.OpenDDL/1.0.0": {
       "type": "project",
       "path": "../Apogee.OpenDDL/Apogee.OpenDDL.csproj",
@@ -7879,14 +7904,9 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v1.1": [
-      "Apogee.OpenDDL >= 1.0.0",
+      "Apogee >= 1.0.0",
       "ImGui.NET >= 0.2.1",
-      "ImageSharp >= 1.0.0-alpha9-00182",
-      "ImageSharp.Drawing >= 1.0.0-alpha9-00177",
-      "Microsoft.CodeAnalysis.CSharp.Scripting >= 2.3.0-beta2",
-      "Microsoft.NETCore.App >= 1.1.2",
-      "Newtonsoft.Json >= 10.0.3",
-      "OpenTK.NETCore >= 1.1.2749.6433"
+      "Microsoft.NETCore.App >= 1.1.2"
     ]
   },
   "packageFolders": {
@@ -7895,10 +7915,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/myvar/Desktop/GitHub/Apogee/Apogee/Apogee.csproj",
-      "projectName": "Apogee",
-      "projectPath": "/home/myvar/Desktop/GitHub/Apogee/Apogee/Apogee.csproj",
-      "outputPath": "/home/myvar/Desktop/GitHub/Apogee/Apogee/obj/",
+      "projectUniqueName": "/home/myvar/Desktop/GitHub/Apogee/Editor/Editor.csproj",
+      "projectName": "Editor",
+      "projectPath": "/home/myvar/Desktop/GitHub/Apogee/Editor/Editor.csproj",
+      "outputPath": "/home/myvar/Desktop/GitHub/Apogee/Editor/obj/",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -7906,8 +7926,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenDDL/Apogee.OpenDDL.csproj": {
-              "projectPath": "/home/myvar/Desktop/GitHub/Apogee/Apogee.OpenDDL/Apogee.OpenDDL.csproj"
+            "/home/myvar/Desktop/GitHub/Apogee/Apogee/Apogee.csproj": {
+              "projectPath": "/home/myvar/Desktop/GitHub/Apogee/Apogee/Apogee.csproj"
             }
           }
         }
@@ -7920,29 +7940,9 @@
             "target": "Package",
             "version": "1.1.2"
           },
-          "ImageSharp": {
-            "target": "Package",
-            "version": "1.0.0-alpha9-00182"
-          },
-          "ImageSharp.Drawing": {
-            "target": "Package",
-            "version": "1.0.0-alpha9-00177"
-          },
           "ImGui.NET": {
             "target": "Package",
             "version": "0.2.1"
-          },
-          "Microsoft.CodeAnalysis.CSharp.Scripting": {
-            "target": "Package",
-            "version": "2.3.0-beta2"
-          },
-          "Newtonsoft.Json": {
-            "target": "Package",
-            "version": "10.0.3"
-          },
-          "OpenTK.NETCore": {
-            "target": "Package",
-            "version": "1.1.2749.6433"
           }
         }
       }

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 using Apogee.Core;
-using Apogee.Gui.UI;
-using Apogee.Gui.UI.Controls;
 using Apogee.Resources;
 using ImageSharp;
 using ImageSharp.Drawing;
@@ -23,11 +21,9 @@ namespace Apogee.Gui
         private static Model _quad { get; set; }
         private static Vector2f WindowSize { get; set; }
 
-        private static Texture _texture { get; set; }
 
         public static void Init(OpenTK.GameWindow window)
         {
-            Fonts.Init();
             
             _shader = new Shader("./Shaders/GUI");
             _projection = GuiHelper.GetOrth(window);
@@ -36,28 +32,7 @@ namespace Apogee.Gui
             WindowSize = new Vector2f(window.Width, window.Height);
 
 
-            using (Image<Rgba32> image = new Image<Rgba32>(500, 500))
-            {
-                FontCollection fonts = new FontCollection();
-                FontFamily font = fonts.Install("./Fonts/Roboto-Regular.ttf");
-
-                var t = new TextGraphicsOptions();
-                t.Antialias = true;
-                
-                image
-                    .Fill(Rgba32.Transparent)
-                    .DrawText("Test", new Font(font, 5), Rgba32.Black, new PointF(1, 1), t)
-                    .DrawText("Test", new Font(font, 10), Rgba32.Black, new PointF(1, 10), t)
-                    .DrawText("Test", new Font(font, 20), Rgba32.Black, new PointF(1, 20), t)
-                    .DrawText("Test", new Font(font, 30), Rgba32.Black, new PointF(1, 40), t)
-                    .DrawText("Test", new Font(font, 40), Rgba32.Black, new PointF(1, 70), t)
-                    .DrawText("Test", new Font(font, 50), Rgba32.Black, new PointF(1, 110), t)
-                    .DrawText("Test", new Font(font, 60), Rgba32.Black, new PointF(1, 170), t)
-                    .DrawText("Test", new Font(font, 100), Rgba32.Black, new PointF(1, 250), t)
-                    
-                    .RotateFlip(RotateType.Rotate180, FlipType.Horizontal);
-                _texture = new Texture(image);
-            }
+          
         }
 
   

@@ -34,6 +34,10 @@
           "target": "Package",
           "version": "1.0.0-alpha9-00177"
         },
+        "ImGui.NET": {
+          "target": "Package",
+          "version": "0.2.1"
+        },
         "Microsoft.CodeAnalysis.CSharp.Scripting": {
           "target": "Package",
           "version": "2.3.0-beta2"

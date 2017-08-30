@@ -114,29 +114,11 @@ namespace Apogee.Core
         }
 
         private bool MouseLocker = false;
-        private bool WireFrame = false;
+
 
         public void Input(Input i, double delta)
         {
-            if (i.IsKeyDown(Key.Z))
-            {
-                if (WireFrame)
-                {
-                    GL.Enable(EnableCap.CullFace);
-                    GL.Enable(EnableCap.DepthTest);
-                    GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
-                }
-                else
-                {
-                    GL.Disable(EnableCap.CullFace);
-                    GL.Disable(EnableCap.DepthTest);
-                    GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
-                }
-
-                WireFrame = !WireFrame;
-
-                Thread.Sleep(50);
-            }
+           
 
             float movAmt = (float) (i.IsKeyDown(Key.ShiftLeft) ? 11 : 10 * delta);
 

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using Apogee.Engine.Core;
 using Apogee.Gui;
 using Apogee.Resources;
 using OpenTK;
 using OpenTK.Graphics.OpenGL4;
+using OpenTK.Input;
 
 namespace Apogee
 {
@@ -73,11 +75,12 @@ namespace Apogee
             Window.UpdateFrame += OnUpdate;
 
             Input = new Input(Window);
-
+            
 
             InitOpenGL();
-
+            ImGUIEngine.Install(Window);
             GuiEngine.Init(Window);
+            
 
             GuiEngine = new GuiEngine();
 
@@ -102,20 +105,44 @@ namespace Apogee
 
         public void OnRender(object sender, FrameEventArgs fea)
         {
-            Clear(Color.White);
+            Clear(Color.Black);
 
             //Render
             MainScene.Draw();
 
             //Gui
-            GuiEngine.Draw(MainScene.UI);
-
+            //GuiEngine.Draw(MainScene.UI);
+            if (WireFrame) GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
+            ImGUIEngine.RenderFrame(MainScene.UI, this);
+            if (WireFrame) GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
 
             Window.SwapBuffers();
         }
 
+        private bool WireFrame = false;
+        
         public void OnUpdate(object sender, FrameEventArgs fea)
         {
+            if (Input.IsKeyDown(Key.Z))
+            {
+                if (WireFrame)
+                {
+                    GL.Enable(EnableCap.CullFace);
+                    GL.Enable(EnableCap.DepthTest);
+                    GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
+                }
+                else
+                {
+                    GL.Disable(EnableCap.CullFace);
+                    GL.Disable(EnableCap.DepthTest);
+                    GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
+                }
+
+                WireFrame = !WireFrame;
+
+                Thread.Sleep(50);
+            }
+            
             Window.Title = "Apogee Engine: " + Math.Round(Window.RenderFrequency) + " FPS";
 
             MainScene.Update(fea.Time);
