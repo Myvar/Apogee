@@ -17,7 +17,7 @@ namespace Apogee
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("] ");
             Console.WriteLine(s);
-            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.White;
         }
         
         /// <summary>
@@ -33,7 +33,7 @@ namespace Apogee
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("] ");
             Console.WriteLine(s);
-            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

@@ -1,4 +1,6 @@
+using System.Threading;
 using Apogee.Engine.Core;
+using OpenTK.Graphics.OpenGL4;
 using OpenTK.Input;
 
 namespace Apogee.Core
@@ -33,6 +35,7 @@ namespace Apogee.Core
             Width = width;
             Height = height;
             fov = Fov;
+            //Sensitivity = sensitivity;
         }
 
         public void Resize(float znear, float zfar, float width, float height, float Fov)
@@ -111,10 +114,31 @@ namespace Apogee.Core
         }
 
         private bool MouseLocker = false;
+        private bool WireFrame = false;
 
         public void Input(Input i, double delta)
         {
-            float movAmt = (float)(10 * delta);
+            if (i.IsKeyDown(Key.Z))
+            {
+                if (WireFrame)
+                {
+                    GL.Enable(EnableCap.CullFace);
+                    GL.Enable(EnableCap.DepthTest);
+                    GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
+                }
+                else
+                {
+                    GL.Disable(EnableCap.CullFace);
+                    GL.Disable(EnableCap.DepthTest);
+                    GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
+                }
+
+                WireFrame = !WireFrame;
+
+                Thread.Sleep(50);
+            }
+
+            float movAmt = (float) (i.IsKeyDown(Key.ShiftLeft) ? 11 : 10 * delta);
 
             if (i.IsKeyDown(Key.W))
             {
@@ -157,18 +181,16 @@ namespace Apogee.Core
 
                 if (rotY)
                 {
-                    RotateY((float)OpenTK.MathHelper.DegreesToRadians(deltaPos.X * Sensitivity));
+                    RotateY((float) OpenTK.MathHelper.DegreesToRadians(deltaPos.X * Sensitivity));
                 }
                 if (rotX)
                 {
-                    RotateX((float)OpenTK.MathHelper.DegreesToRadians(deltaPos.Y * Sensitivity));
+                    RotateX((float) OpenTK.MathHelper.DegreesToRadians(deltaPos.Y * Sensitivity));
                 }
 
 
                 i.CenterMouse();
             }
-
-
         }
     }
 }

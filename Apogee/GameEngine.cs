@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using Apogee.Core;
 using Apogee.Engine.Core;
 using Apogee.Gui;
 using Apogee.Resources;
@@ -33,10 +30,12 @@ namespace Apogee
             Terminal.Debug($"WorkingDirectory: {Directory.GetCurrentDirectory()}");
 
             Assets = new Assets(this);
-            
-            Window = new GameWindow();
+
+            Window = new GameWindow(800, 600);
+           
+            Terminal.Log(GL.GetString(StringName.Version));
         }
-        
+
         private static void InitOpenGL()
         {
             GL.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -53,7 +52,6 @@ namespace Apogee
             GL.Enable(EnableCap.Texture2D);
         }
 
-
         private Scene MainScene;
 
         /// <summary>
@@ -63,28 +61,26 @@ namespace Apogee
         public GameEngine Start()
         {
             Terminal.Log("Starting Game");
-            
+
             //testing
             MainScene = Assets.Load<Scene>("mainscene.cs");
             var en = this;
             MainScene.LoadGameEngine(ref en);
-            
-            
-            
-            
+
+
             Window.Load += OnWindowOnLoad;
             Window.RenderFrame += OnRender;
             Window.UpdateFrame += OnUpdate;
-           
+
             Input = new Input(Window);
-            
-            
+
+
             InitOpenGL();
 
             GuiEngine.Init(Window);
 
             GuiEngine = new GuiEngine();
-            
+
             Window.TargetRenderFrequency = 400;
             Window.VSync = VSyncMode.Off;
             Window.Title = "Apogee Engine: --- FPS";
@@ -110,23 +106,20 @@ namespace Apogee
 
             //Render
             MainScene.Draw();
-            
+
             //Gui
-            GuiEngine.Draw();
-            
+            GuiEngine.Draw(MainScene.UI);
+
+
             Window.SwapBuffers();
         }
 
-        
-        
-        
-        
         public void OnUpdate(object sender, FrameEventArgs fea)
         {
             Window.Title = "Apogee Engine: " + Math.Round(Window.RenderFrequency) + " FPS";
 
             MainScene.Update(fea.Time);
-            
+
             GL.Viewport(0, 0, Window.Size.Width, Window.Size.Height);
         }
     }

@@ -22,6 +22,11 @@ namespace Apogee.Resources
             
         }
         
+        public virtual void UI()
+        {
+            
+        }
+        
         public virtual void Update(double deltaTime)
         {
             

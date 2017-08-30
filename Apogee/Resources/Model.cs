@@ -184,7 +184,7 @@ namespace Apogee.Resources
             GL.VertexAttribPointer(1, 3, VertexAttribPointerType.Float, false, Vertex.Size * 4, 12);
             GL.VertexAttribPointer(2, 3, VertexAttribPointerType.Float, false, Vertex.Size * 4, 24);
             GL.VertexAttribPointer(3, 3, VertexAttribPointerType.Float, false, Vertex.Size * 4, 36);
-            GL.VertexAttribPointer(4, 2, VertexAttribPointerType.Float, false, Vertex.Size * 4, 44);
+            GL.VertexAttribPointer(4, 2, VertexAttribPointerType.Float, false, Vertex.Size * 4, 48);
 
             foreach (var ibo in ibos)
             {

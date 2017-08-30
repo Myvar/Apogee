@@ -487,7 +487,7 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
-      "OpenTK.NETCore/1.1.2571.6431": {
+      "OpenTK.NETCore/1.1.2749.6433": {
         "type": "package",
         "dependencies": {
           "Microsoft.Win32.Primitives": "4.0.1",
@@ -3053,14 +3053,14 @@
         "tools/install.ps1"
       ]
     },
-    "OpenTK.NETCore/1.1.2571.6431": {
-      "sha512": "XXc+xTC5jSvnpr+XpbwUpzttAgYGW2ZNTZS9O0TYbu2h9J7SqrAt5OtBOZ0d4uhVZdzjExiXt8rO20CwahboZA==",
+    "OpenTK.NETCore/1.1.2749.6433": {
+      "sha512": "6BKtR8G02nx/+tMUnzSLMd4XWabSJyet6zrLcaccEw1LHvByrBA5uMsf9qHNU7Sptvz0T/Xt4X+M1I82cFqygA==",
       "type": "package",
-      "path": "opentk.netcore/1.1.2571.6431",
+      "path": "opentk.netcore/1.1.2749.6433",
       "files": [
         "lib/netstandard1.3/OpenTK.dll",
         "lib/netstandard1.3/OpenTK.xml",
-        "opentk.netcore.1.1.2571.6431.nupkg.sha512",
+        "opentk.netcore.1.1.2749.6433.nupkg.sha512",
         "opentk.netcore.nuspec"
       ]
     },
@@ -7840,7 +7840,7 @@
       "Microsoft.CodeAnalysis.CSharp.Scripting >= 2.3.0-beta2",
       "Microsoft.NETCore.App >= 1.1.2",
       "Newtonsoft.Json >= 10.0.3",
-      "OpenTK.NETCore >= 1.1.2571.6431"
+      "OpenTK.NETCore >= 1.1.2749.6433"
     ]
   },
   "packageFolders": {
@@ -7876,7 +7876,7 @@
           },
           "ImageSharp": {
             "target": "Package",
-            "version": "[1.0.0-alpha9-00182, )"
+            "version": "1.0.0-alpha9-00182"
           },
           "ImageSharp.Drawing": {
             "target": "Package",
@@ -7892,7 +7892,7 @@
           },
           "OpenTK.NETCore": {
             "target": "Package",
-            "version": "1.1.2571.6431"
+            "version": "[1.1.2749.6433, )"
           }
         }
       }

@@ -44,7 +44,7 @@
         },
         "OpenTK.NETCore": {
           "target": "Package",
-          "version": "1.1.2571.6431"
+          "version": "1.1.2749.6433"
         }
       }
     }

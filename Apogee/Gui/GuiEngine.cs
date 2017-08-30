@@ -1,11 +1,17 @@
 ﻿using System;
 using System.IO;
 using Apogee.Core;
+using Apogee.Gui.UI;
+using Apogee.Gui.UI.Controls;
 using Apogee.Resources;
 using ImageSharp;
+using ImageSharp.Drawing;
+using ImageSharp.Drawing.Brushes;
 using ImageSharp.Drawing.Pens;
+using ImageSharp.Processing;
 using SixLabors.Fonts;
 using SixLabors.Primitives;
+using SixLabors.Shapes;
 
 namespace Apogee.Gui
 {
@@ -16,50 +22,74 @@ namespace Apogee.Gui
         private static Transform _tranform { get; set; }
         private static Model _quad { get; set; }
         private static Vector2f WindowSize { get; set; }
-        
+
         private static Texture _texture { get; set; }
 
         public static void Init(OpenTK.GameWindow window)
         {
+            Fonts.Init();
+            
             _shader = new Shader("./Shaders/GUI");
             _projection = GuiHelper.GetOrth(window);
             _tranform = new Transform();
-            
+
             WindowSize = new Vector2f(window.Width, window.Height);
 
 
-            using (Image<Rgba32> image = new Image<Rgba32>(100, 100))
+            using (Image<Rgba32> image = new Image<Rgba32>(500, 500))
             {
-                // FontCollection fonts = new FontCollection();
-                // FontFamily font = fonts.Install("./Fonts/Roboto-Regular.ttf");
-                /* image
-                     .Fill(Rgba32.Green)
-                     .DrawLines(new Pen<Rgba32>(Rgba32.Red, 5), new PointF[] {new PointF(0, 0), new PointF(100, 100)})
-                     .DrawLines(new Pen<Rgba32>(Rgba32.Blue, 5), new PointF[] {new PointF(100, 0), new PointF(0, 100)})
-                    // .DrawText("Test", new Font(font, 50), Rgba32.Black, new PointF(1, 1))
-                     .GaussianBlur();*/
-                _texture = new Texture(Image.Load("./uv.png"));
+                FontCollection fonts = new FontCollection();
+                FontFamily font = fonts.Install("./Fonts/Roboto-Regular.ttf");
+
+                var t = new TextGraphicsOptions();
+                t.Antialias = true;
+                
+                image
+                    .Fill(Rgba32.Transparent)
+                    .DrawText("Test", new Font(font, 5), Rgba32.Black, new PointF(1, 1), t)
+                    .DrawText("Test", new Font(font, 10), Rgba32.Black, new PointF(1, 10), t)
+                    .DrawText("Test", new Font(font, 20), Rgba32.Black, new PointF(1, 20), t)
+                    .DrawText("Test", new Font(font, 30), Rgba32.Black, new PointF(1, 40), t)
+                    .DrawText("Test", new Font(font, 40), Rgba32.Black, new PointF(1, 70), t)
+                    .DrawText("Test", new Font(font, 50), Rgba32.Black, new PointF(1, 110), t)
+                    .DrawText("Test", new Font(font, 60), Rgba32.Black, new PointF(1, 170), t)
+                    .DrawText("Test", new Font(font, 100), Rgba32.Black, new PointF(1, 250), t)
+                    
+                    .RotateFlip(RotateType.Rotate180, FlipType.Horizontal);
+                _texture = new Texture(image);
             }
         }
 
-        public void Draw()
+  
+        
+        public void Draw(Action toDraw)
         {
             GuiHelper.Start2D();
             _shader.Apply();
 
-                DrawImage(100, 100, 100, 100, _texture);
-                
-            
+            toDraw();
 
             GuiHelper.End2D();
         }
 
-        public void DrawImage(int x, int y, int w, int h, Texture t)
+        public static void DrawImage(int x, int y, int w, int h, Texture t)
         {
             t.Apply(0);
             _tranform.Translation = new Vector3f(x, WindowSize.Y - y - h, 0);
             _tranform.Scale = new Vector3f(w, h, 0);
-            
+
+
+            _shader.SetUniform("Model", _tranform.GetTranformation());
+            _shader.SetUniform("Proj", _projection);
+            _quad = GuiHelper.NewQuad();
+            _quad.Draw();
+        }
+        
+        public static void DrawImage(int x, int y, int w, int h)
+        {
+            _tranform.Translation = new Vector3f(x, WindowSize.Y - y - h, 0);
+            _tranform.Scale = new Vector3f(w, h, 0);
+
 
             _shader.SetUniform("Model", _tranform.GetTranformation());
             _shader.SetUniform("Proj", _projection);

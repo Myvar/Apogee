@@ -1,33 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using ImageSharp;
-using ImageSharp.Formats;
+using ImageSharp.PixelFormats;
 using OpenTK.Graphics.OpenGL4;
 
 namespace Apogee.Resources
 {
-    public class Texture
+    public class TerainMap
     {
         public int TextureID;
         public int Width, Height;
 
-        public Texture(Image<Rgba32> image)
+        public TerainMap(Image<Rgba64> image)
         {
             var data = ColorArrayToByteArray(image);
 
             Width = image.Width;
             Height = image.Height;
 
-
-           // GL.Hint(HintTarget.PerspectiveCorrectionHint, HintMode.Nicest);
-
             TextureID = GL.GenTexture();
 
             GL.BindTexture(TextureTarget.Texture2D, TextureID);
 
-            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, Width, Height, 0,
-                PixelFormat.Rgba, PixelType.UnsignedByte, data);
+            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba16 , Width, Height, 0,
+                PixelFormat.Rgba, PixelType.Float, data);
 
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int) TextureWrapMode.Repeat);
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int) TextureWrapMode.Repeat);
@@ -36,12 +31,6 @@ namespace Apogee.Resources
                 (int) TextureMinFilter.Linear);
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter,
                 (int) TextureMagFilter.Linear);
-
-/*
-
-            GL.GenerateMipmap(GenerateMipmapTarget.Texture2D);
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)0x2703);
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureLodBias, -1);*/
         }
 
         public void Dispose()
@@ -50,9 +39,9 @@ namespace Apogee.Resources
         }
 
 
-        private byte[] ColorArrayToByteArray(Image<Rgba32> c)
+        private byte[] ColorArrayToByteArray(Image<Rgba64> c)
         {
-              return c.Pixels.AsBytes().ToArray();
+            return c.Pixels.AsBytes().ToArray();
         }
 
         public void Apply(int samplerSlot)

@@ -8,15 +8,12 @@
     <PackageReference Include="ImageSharp.Drawing" Version="1.0.0-alpha9-00177" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="2.3.0-beta2" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="OpenTK.NETCore" Version="1.1.2571.6431" />
+    <PackageReference Include="OpenTK.NETCore" Version="1.1.2749.6433" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Apogee.OpenDDL\Apogee.OpenDDL.csproj">
       <Project>{33E8C2E4-8935-4024-B2A7-49CB4DFB43D6}</Project>
       <Name>Apogee.OpenDDL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Shaders" />
   </ItemGroup>
 </Project>
