@@ -2,7 +2,7 @@
     "rdocCaptureSettings": 1,
     "settings": {
         "AutoStart": false,
-        "CmdLine": "/home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/Apogee.dll",
+        "CmdLine": "/home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/Apogee.dll /home/myvar/Desktop/GitHub/Apogee/Editor",
         "Environment": [
         ],
         "Executable": "/usr/bin/dotnet",

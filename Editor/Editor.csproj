@@ -3,6 +3,7 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Apogee.API\Apogee.API.csproj" />
     <ProjectReference Include="..\Apogee\Apogee.csproj" />
   </ItemGroup>
   <ItemGroup>

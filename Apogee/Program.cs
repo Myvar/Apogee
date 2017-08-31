@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            new GameEngine("../Editor").Start();
+            new GameEngine(args[0]).Start();
         }
     }
 }

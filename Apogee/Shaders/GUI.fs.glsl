@@ -1,4 +1,4 @@
-#version 450
+#version 150
 
 in vec2 UV;
 uniform sampler2D texture;

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Threading;
+using Apogee.API;
 using Apogee.Engine.Core;
 using Apogee.Gui;
 using Apogee.Resources;
 using OpenTK;
-using OpenTK.Graphics.OpenGL4;
+using OpenTK.Graphics;
+using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
 
 namespace Apogee
@@ -27,15 +29,23 @@ namespace Apogee
         {
             GameDirectory = Path.GetFullPath(gd);
 
+            if (!Directory.Exists(gd))
+            {
+                Terminal.Debug("Directory does not exist: " + GameDirectory);
+                return;
+            }
+            
             //init
             Terminal.Debug($"GameDirectory: {GameDirectory}");
             Terminal.Debug($"WorkingDirectory: {Directory.GetCurrentDirectory()}");
 
+            Terminal.Debug($"Loading Assets");
             Assets = new Assets(this);
 
+            Terminal.Debug($"Loading Window");
             Window = new GameWindow(800, 600);
            
-            Terminal.Log(GL.GetString(StringName.Version));
+            Terminal.Debug(GL.GetString(StringName.Version));
         }
 
         private static void InitOpenGL()
@@ -73,14 +83,15 @@ namespace Apogee
             Window.Load += OnWindowOnLoad;
             Window.RenderFrame += OnRender;
             Window.UpdateFrame += OnUpdate;
-
+            
+            
             Input = new Input(Window);
             
 
             InitOpenGL();
             ImGUIEngine.Install(Window);
             GuiEngine.Init(Window);
-            
+            ApiLoader.Load(this);
 
             GuiEngine = new GuiEngine();
 
@@ -105,7 +116,7 @@ namespace Apogee
 
         public void OnRender(object sender, FrameEventArgs fea)
         {
-            Clear(Color.Black);
+            Clear(Color.DarkCyan);
 
             //Render
             MainScene.Draw();

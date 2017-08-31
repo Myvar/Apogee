@@ -1,4 +1,4 @@
-#version 450
+#version 150
 
 flat in vec3 normal0;
 in vec3 pos0;

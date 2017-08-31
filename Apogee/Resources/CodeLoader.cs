@@ -12,10 +12,15 @@ namespace Apogee.Resources
 {
     public class CodeLoader
     {
+        public static List<MetadataReference> MetadataReferences { get; set; } = new List<MetadataReference>()
+        {
+            MetadataReference.CreateFromFile(typeof(object).GetTypeInfo().Assembly.Location)
+        };
+
         public static object GetClass(string code, Type implments)
         {
             var tree = CSharpSyntaxTree.ParseText(code);
-            var compilation = CSharpCompilation.Create("MyCompilation", new[] { tree }, new[] { MetadataReference.CreateFromFile(typeof(object).GetTypeInfo().Assembly.Location) });
+            var compilation = CSharpCompilation.Create("MyCompilation", new[] { tree }, MetadataReferences.ToArray());
             var semanticModel = compilation.GetSemanticModel(tree);
             var root = tree.GetRoot();
 
