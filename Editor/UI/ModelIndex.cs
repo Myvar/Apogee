@@ -92,16 +92,40 @@ namespace Editor.UI
             ImGui.BeginWindow("ModelIndex");
 
             //list
-
+            uint c = 0;
+            int l = 0;
             foreach (var model in Models)
             {
+                
                 var x = RenderThumnail(model);
                 var fl = new FileInfo(model);
                 //ImGui.Button(fl.Name);
 
+                if (l < 6)
+                {
+                    ImGui.SameLine();
+                }
+                else
+                {
+                    l = 0;
+                }
+
+                ImGui.BeginChildFrame(c++, new Vector2(128, 128) + new Vector2(0, 50), WindowFlags.Default);
+                
+                ImGui.Text(fl.Name);
+                
                 ImGui.Image(new IntPtr(x), new Vector2(128, 128), new Vector2(0, 1), new Vector2(1, 0),
                     new Vector4(1, 1, 1, 1),
                     new Vector4(0, 0, 0, 0));
+
+
+                if (ImGui.Button("Apply"))
+                {
+                    ObjectEditor.CurrentWorldObject.Model = LoadCached(model);
+                }
+                
+                ImGui.EndChildFrame();
+                l++;
             }
             ImGui.NextColumn();
 

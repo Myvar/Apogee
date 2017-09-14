@@ -18,6 +18,9 @@ namespace Editor.UI
             var scene = s as MainScene;
             if (ImGui.BeginWindow("MainViewPort", WindowFlags.AlwaysAutoResize))
             {
+
+                scene.Camera.CanMove = ImGui.IsMouseHoveringWindow();
+                
                 int x = scene.MainView.Texture;
                 ImGui.Text("FPS: " + Math.Round(scene.Engine.Window.RenderFrequency, 0));
 

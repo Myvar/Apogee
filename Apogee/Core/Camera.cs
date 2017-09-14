@@ -38,6 +38,8 @@ namespace Apogee.Core
             //Sensitivity = sensitivity;
         }
 
+        public bool CanMove { get; set; } = true;
+
         public void Resize(float znear, float zfar, float width, float height, float Fov)
         {
             zNear = znear;
@@ -118,7 +120,7 @@ namespace Apogee.Core
 
         public void Input(Input i, double delta)
         {
-           
+           if(!CanMove) return;
 
             float movAmt = (float) (i.IsKeyDown(Key.ShiftLeft) ? 11 : 10 * delta);
 
