@@ -71,5 +71,11 @@ namespace Apogee.Core
             GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
             GL.Viewport(0, 0, Width, Height);
         }
+
+        public void Clear()
+        {
+            GL.ClearColor(OpenTK.Color.Black);
+                        GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+        }
     }
 }

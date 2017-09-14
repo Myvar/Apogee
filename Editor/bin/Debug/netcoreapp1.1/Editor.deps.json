@@ -1,0 +1,536 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v1.1",
+    "signature": "6dcb5018937a258c2dea84c4a31638397d7ebdff"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v1.1": {
+      "editor/1.0.0": {
+        "dependencies": {
+          "Apogee": "1.0.0",
+          "ImGui.NET": "0.2.1"
+        },
+        "runtime": {
+          "Editor.dll": {}
+        }
+      },
+      "imagesharp/1.0.0-alpha9-00182": {
+        "dependencies": {
+          "SixLabors.Core": "0.1.0-alpha0002",
+          "System.Memory": "4.4.0-preview1-25305-02",
+          "System.Runtime.CompilerServices.Unsafe": "4.4.0-preview1-25305-02",
+          "System.ValueTuple": "4.4.0-preview1-25305-02"
+        },
+        "runtime": {
+          "lib/netstandard1.3/ImageSharp.dll": {}
+        }
+      },
+      "imagesharp.drawing/1.0.0-alpha9-00177": {
+        "dependencies": {
+          "ImageSharp": "1.0.0-alpha9-00182",
+          "SixLabors.Shapes.Text": "0.1.0-alpha0018"
+        },
+        "runtime": {
+          "lib/netstandard1.1/ImageSharp.Drawing.dll": {}
+        }
+      },
+      "imgui.net/0.2.1": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.4.0-preview1-25305-02"
+        },
+        "runtime": {
+          "lib/netstandard1.1/ImGui.NET.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/osx.10.10-x64/native/cimgui.dylib": {
+            "rid": "osx.10.10-x64",
+            "assetType": "native"
+          },
+          "runtimes/ubuntu-x64/native/cimgui.so": {
+            "rid": "ubuntu-x64",
+            "assetType": "native"
+          },
+          "runtimes/win7-x64/native/cimgui.dll": {
+            "rid": "win7-x64",
+            "assetType": "native"
+          }
+        }
+      },
+      "microsoft.codeanalysis.analyzers/1.1.0": {},
+      "microsoft.codeanalysis.common/2.3.0-beta2": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Analyzers": "1.1.0",
+          "System.Collections.Immutable": "1.3.1",
+          "System.Diagnostics.FileVersionInfo": "4.3.0",
+          "System.Diagnostics.StackTrace": "4.3.0",
+          "System.Reflection.Metadata": "1.4.2",
+          "System.Text.Encoding.CodePages": "4.3.0",
+          "System.ValueTuple": "4.4.0-preview1-25305-02",
+          "System.Xml.XPath.XDocument": "4.3.0",
+          "System.Xml.XmlDocument": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.dll": {}
+        }
+      },
+      "microsoft.codeanalysis.csharp/2.3.0-beta2": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Common": "2.3.0-beta2"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.CSharp.dll": {}
+        }
+      },
+      "microsoft.codeanalysis.csharp.scripting/2.3.0-beta2": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.CSharp": "2.3.0-beta2",
+          "Microsoft.CodeAnalysis.Scripting.Common": "2.3.0-beta2"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.CSharp.Scripting.dll": {}
+        }
+      },
+      "microsoft.codeanalysis.scripting.common/2.3.0-beta2": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Common": "2.3.0-beta2",
+          "System.Collections.Immutable": "1.3.1",
+          "System.Diagnostics.StackTrace": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.Scripting.dll": {}
+        }
+      },
+      "newtonsoft.json/10.0.3": {
+        "dependencies": {
+          "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Runtime.Serialization.Formatters": "4.3.0",
+          "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Xml.XmlDocument": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+        }
+      },
+      "opentk.netcore/1.1.2749.6433": {
+        "dependencies": {
+          "System.Collections.Specialized": "4.3.0",
+          "System.ComponentModel.Primitives": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/OpenTK.dll": {}
+        }
+      },
+      "sixlabors.core/0.1.0-alpha0002": {
+        "runtime": {
+          "lib/netstandard1.1/SixLabors.Core.dll": {}
+        }
+      },
+      "sixlabors.fonts/0.1.0-alpha0014": {
+        "dependencies": {
+          "SixLabors.Core": "0.1.0-alpha0002",
+          "System.Collections.Immutable": "1.3.1"
+        },
+        "runtime": {
+          "lib/netstandard1.3/SixLabors.Fonts.dll": {}
+        }
+      },
+      "sixlabors.shapes/0.1.0-alpha0018": {
+        "dependencies": {
+          "SixLabors.Core": "0.1.0-alpha0002",
+          "System.Memory": "4.4.0-preview1-25305-02"
+        },
+        "runtime": {
+          "lib/netstandard1.1/SixLabors.Shapes.dll": {}
+        }
+      },
+      "sixlabors.shapes.text/0.1.0-alpha0018": {
+        "dependencies": {
+          "SixLabors.Fonts": "0.1.0-alpha0014",
+          "SixLabors.Shapes": "0.1.0-alpha0018"
+        },
+        "runtime": {
+          "lib/netstandard1.1/SixLabors.Shapes.Text.dll": {}
+        }
+      },
+      "system.collections.immutable/1.3.1": {
+        "runtime": {
+          "lib/netstandard1.0/System.Collections.Immutable.dll": {}
+        }
+      },
+      "system.collections.nongeneric/4.3.0": {
+        "runtime": {
+          "lib/netstandard1.3/System.Collections.NonGeneric.dll": {}
+        }
+      },
+      "system.collections.specialized/4.3.0": {
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Collections.Specialized.dll": {}
+        }
+      },
+      "system.componentmodel.primitives/4.3.0": {
+        "runtime": {
+          "lib/netstandard1.0/System.ComponentModel.Primitives.dll": {}
+        }
+      },
+      "system.componentmodel.typeconverter/4.3.0": {
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.3.0",
+          "System.Collections.Specialized": "4.3.0",
+          "System.ComponentModel.Primitives": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.5/System.ComponentModel.TypeConverter.dll": {}
+        }
+      },
+      "system.diagnostics.fileversioninfo/4.3.0": {
+        "dependencies": {
+          "System.Reflection.Metadata": "1.4.2"
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.3/System.Diagnostics.FileVersionInfo.dll": {
+            "rid": "unix",
+            "assetType": "runtime"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Diagnostics.FileVersionInfo.dll": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        }
+      },
+      "system.diagnostics.stacktrace/4.3.0": {
+        "dependencies": {
+          "System.Reflection.Metadata": "1.4.2"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Diagnostics.StackTrace.dll": {}
+        }
+      },
+      "system.memory/4.4.0-preview1-25305-02": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.4.0-preview1-25305-02"
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Memory.dll": {}
+        }
+      },
+      "system.reflection.metadata/1.4.2": {
+        "dependencies": {
+          "System.Collections.Immutable": "1.3.1"
+        },
+        "runtime": {
+          "lib/netstandard1.1/System.Reflection.Metadata.dll": {}
+        }
+      },
+      "system.runtime.compilerservices.unsafe/4.4.0-preview1-25305-02": {
+        "runtime": {
+          "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "system.runtime.serialization.formatters/4.3.0": {
+        "dependencies": {
+          "System.Runtime.Serialization.Primitives": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.4/System.Runtime.Serialization.Formatters.dll": {}
+        }
+      },
+      "system.runtime.serialization.primitives/4.3.0": {
+        "runtime": {
+          "lib/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {}
+        }
+      },
+      "system.text.encoding.codepages/4.3.0": {
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.3/System.Text.Encoding.CodePages.dll": {
+            "rid": "unix",
+            "assetType": "runtime"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Text.Encoding.CodePages.dll": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        }
+      },
+      "system.valuetuple/4.4.0-preview1-25305-02": {
+        "runtime": {
+          "lib/netstandard1.0/System.ValueTuple.dll": {}
+        }
+      },
+      "system.xml.xmldocument/4.3.0": {
+        "runtime": {
+          "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
+        }
+      },
+      "system.xml.xpath/4.3.0": {
+        "runtime": {
+          "lib/netstandard1.3/System.Xml.XPath.dll": {}
+        }
+      },
+      "system.xml.xpath.xdocument/4.3.0": {
+        "dependencies": {
+          "System.Xml.XPath": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
+        }
+      },
+      "apogee/1.0.0": {
+        "dependencies": {
+          "Apogee.OpenDDL": "1.0.0",
+          "ImGui.NET": "0.2.1",
+          "ImageSharp": "1.0.0-alpha9-00182",
+          "ImageSharp.Drawing": "1.0.0-alpha9-00177",
+          "Microsoft.CodeAnalysis.CSharp.Scripting": "2.3.0-beta2",
+          "Newtonsoft.Json": "10.0.3",
+          "OpenTK.NETCore": "1.1.2749.6433"
+        },
+        "runtime": {
+          "Apogee.dll": {}
+        }
+      },
+      "apogee.openddl/1.0.0": {
+        "runtime": {
+          "Apogee.OpenDDL.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "editor/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "imagesharp/1.0.0-alpha9-00182": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tNsf+m63AXz9Kh5M2Uzvnd7LTLBVEtmoTabkcmOIJv1mUh2IMuuOAa/U//WZCKbBRqlT2d+SvlkPjzZKpvp5Bw==",
+      "path": "imagesharp/1.0.0-alpha9-00182",
+      "hashPath": "imagesharp.1.0.0-alpha9-00182.nupkg.sha512"
+    },
+    "imagesharp.drawing/1.0.0-alpha9-00177": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vQbv9jH40YRLbvCXgWZtAz3oeoLyxKjJDSnZR1+05Wmj3hmtGletckJowtemMaMq0gg638lGWG0Wx5tET+8EMQ==",
+      "path": "imagesharp.drawing/1.0.0-alpha9-00177",
+      "hashPath": "imagesharp.drawing.1.0.0-alpha9-00177.nupkg.sha512"
+    },
+    "imgui.net/0.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fIlbyjjRHWLxPUlkaQLdWXSNj0sCCbG4o8Ol5aAjNSjv4OP3hTPuOGoV6a9snoGy5BN2CTb7nJuCdxmFus3Npw==",
+      "path": "imgui.net/0.2.1",
+      "hashPath": "imgui.net.0.2.1.nupkg.sha512"
+    },
+    "microsoft.codeanalysis.analyzers/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QnE5o9XufIQk7md5ZRCAA4nMTdZiyx+f0PKsvxcz2fgI405v7DwT4p96/uxzkNAwDZjIUAcYYo/zVZdZUAxqwA==",
+      "path": "microsoft.codeanalysis.analyzers/1.1.0",
+      "hashPath": "microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512"
+    },
+    "microsoft.codeanalysis.common/2.3.0-beta2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nxUkGZ9+FFktJWL3BCHdSeHqUFrz+zKW4mFIwgzeZJtyPAUcvbPyxskf75LqTSUS7P3NZ8h0qne8IBCnluh5Zw==",
+      "path": "microsoft.codeanalysis.common/2.3.0-beta2",
+      "hashPath": "microsoft.codeanalysis.common.2.3.0-beta2.nupkg.sha512"
+    },
+    "microsoft.codeanalysis.csharp/2.3.0-beta2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jDHat5zxaML2YwqbHYef6gCk/+sGEUtfJib4GDMbOrgZUA0V44aJK//z4oHSP8prs2QJlrN4GVhJREN4h3V3NA==",
+      "path": "microsoft.codeanalysis.csharp/2.3.0-beta2",
+      "hashPath": "microsoft.codeanalysis.csharp.2.3.0-beta2.nupkg.sha512"
+    },
+    "microsoft.codeanalysis.csharp.scripting/2.3.0-beta2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wdE8HYaaoDwBZeBLbwIX2CeJkXII+wlDedRkGb4G3Qkc5zlR/DXSrWEckkoNCwPpwhQ6pzTIEVyv0O7yxHme4w==",
+      "path": "microsoft.codeanalysis.csharp.scripting/2.3.0-beta2",
+      "hashPath": "microsoft.codeanalysis.csharp.scripting.2.3.0-beta2.nupkg.sha512"
+    },
+    "microsoft.codeanalysis.scripting.common/2.3.0-beta2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Te/6hPyLni/7v6Ori9hW/GolBJ4RFVnidsQhUGXf8U/VZpYf5qWSwfLQGa+5+yWdWV2w47fzvaSBECg3TBt04w==",
+      "path": "microsoft.codeanalysis.scripting.common/2.3.0-beta2",
+      "hashPath": "microsoft.codeanalysis.scripting.common.2.3.0-beta2.nupkg.sha512"
+    },
+    "newtonsoft.json/10.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wBM7i7i3U2WX0ecor4zdVGvgrwFUjuigBoHKiL+nH39fCOpCPjBY3RDqJM32edvdyTAVdjzlccHsg41+/+zpSA==",
+      "path": "newtonsoft.json/10.0.3",
+      "hashPath": "newtonsoft.json.10.0.3.nupkg.sha512"
+    },
+    "opentk.netcore/1.1.2749.6433": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6BKtR8G02nx/+tMUnzSLMd4XWabSJyet6zrLcaccEw1LHvByrBA5uMsf9qHNU7Sptvz0T/Xt4X+M1I82cFqygA==",
+      "path": "opentk.netcore/1.1.2749.6433",
+      "hashPath": "opentk.netcore.1.1.2749.6433.nupkg.sha512"
+    },
+    "sixlabors.core/0.1.0-alpha0002": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MXfbVvZIXx8bt1Qwn3Pv9k7Wrz5eL3Qg8WZusJyQwo4pJRF7WUpEd/mEbZxXNajbTqYYuBXodCsVeTGYhKzKwQ==",
+      "path": "sixlabors.core/0.1.0-alpha0002",
+      "hashPath": "sixlabors.core.0.1.0-alpha0002.nupkg.sha512"
+    },
+    "sixlabors.fonts/0.1.0-alpha0014": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Rhb/1VYQXxiB8qajnEabL0RNaro5Kjj9b3rDKPklSMDSEJkGPdgYzBtAzyxpQCTWvbYEQBA6Oufxo7x5tlEHBQ==",
+      "path": "sixlabors.fonts/0.1.0-alpha0014",
+      "hashPath": "sixlabors.fonts.0.1.0-alpha0014.nupkg.sha512"
+    },
+    "sixlabors.shapes/0.1.0-alpha0018": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BQ6xMSqKulHsOjN+QG3hH31ROZstH7VtNqIOa4ou87AY9esYBG/vFMwIDW/zRp4Bt5B8vqEGVwHI4DJ3ypsLsw==",
+      "path": "sixlabors.shapes/0.1.0-alpha0018",
+      "hashPath": "sixlabors.shapes.0.1.0-alpha0018.nupkg.sha512"
+    },
+    "sixlabors.shapes.text/0.1.0-alpha0018": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+c2gId8qHb0Rjj/Xmik2W/kE5H7M94jgCr9X/m10zPV25UjLxdPguFQfhrDkxoa3qkye3mDlATbaQ7lpyFvpHw==",
+      "path": "sixlabors.shapes.text/0.1.0-alpha0018",
+      "hashPath": "sixlabors.shapes.text.0.1.0-alpha0018.nupkg.sha512"
+    },
+    "system.collections.immutable/1.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n74suQKvqz+9N2HcVHSh5cDwDQj88Af6zBkKN0lyP0fWpq5D85zOxdcJoyJvrn08XalCs8UIfyZQu+5Z5sPf5g==",
+      "path": "system.collections.immutable/1.3.1",
+      "hashPath": "system.collections.immutable.1.3.1.nupkg.sha512"
+    },
+    "system.collections.nongeneric/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-a+IE0crqSEqmMdPr5suVjSEs7vgM/4kBnNS1T4ZQ2ABKh08LPRmlT0xQbwf01IRnaak0a6IB2mPXzPXQmSB9UQ==",
+      "path": "system.collections.nongeneric/4.3.0",
+      "hashPath": "system.collections.nongeneric.4.3.0.nupkg.sha512"
+    },
+    "system.collections.specialized/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/MFO5RTyFTaq29lrdDv6UkRABeyLb6iHMw70rVmaKuojoIazLGvP18v5zYbfkQk0yu/MtUibOKBITjYwBls9mQ==",
+      "path": "system.collections.specialized/4.3.0",
+      "hashPath": "system.collections.specialized.4.3.0.nupkg.sha512"
+    },
+    "system.componentmodel.primitives/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uRPgljcJf6bUBUrxRlc28OvFgHLaax5x3r5o5mT0T+lbl9Ic63/NfFhUC2CuzVSasnagMfz9J5VaNy1eUA48hA==",
+      "path": "system.componentmodel.primitives/4.3.0",
+      "hashPath": "system.componentmodel.primitives.4.3.0.nupkg.sha512"
+    },
+    "system.componentmodel.typeconverter/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U9hqB9ypjV1THrcVYLpmizdNMC/dREGPAkZnRFZiMK6bBI1wiOOi9y70kX4pSBhEQ3qKZbJcok8HUFzLNw5zkA==",
+      "path": "system.componentmodel.typeconverter/4.3.0",
+      "hashPath": "system.componentmodel.typeconverter.4.3.0.nupkg.sha512"
+    },
+    "system.diagnostics.fileversioninfo/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2ikzs/9DH/Vn30B4vOOgm87wEdIs5DomOSJV9sIMpaIJo2R9QisA/v93kAt/eMzPqTWeKyNsfVNQ6RKK6IJoBA==",
+      "path": "system.diagnostics.fileversioninfo/4.3.0",
+      "hashPath": "system.diagnostics.fileversioninfo.4.3.0.nupkg.sha512"
+    },
+    "system.diagnostics.stacktrace/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2PYCphXXgiaHbyQUGTzwBVLK6KrOJRt6rU7Et/5pqYNxeGxv7LJ7ucawNbNzq08P3Xv160rjoJa50AVaCCKDlA==",
+      "path": "system.diagnostics.stacktrace/4.3.0",
+      "hashPath": "system.diagnostics.stacktrace.4.3.0.nupkg.sha512"
+    },
+    "system.memory/4.4.0-preview1-25305-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fpticQQnqSE6mOjajuAqypTuWRJ/6fDLozurzt2gXoFFWyl7CsrcrR6f5WBN9e+GCGQDyeeSs3yC7pncvZLgdA==",
+      "path": "system.memory/4.4.0-preview1-25305-02",
+      "hashPath": "system.memory.4.4.0-preview1-25305-02.nupkg.sha512"
+    },
+    "system.reflection.metadata/1.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IOqmUjsdOD7OP0vpF0gn6ifWwY2WVCqrF1ZYJ7s+Fln92YuceFfdlZRDOuX7GM2qb8H4Q3Y5tVKWDfLMH1KBlQ==",
+      "path": "system.reflection.metadata/1.4.2",
+      "hashPath": "system.reflection.metadata.1.4.2.nupkg.sha512"
+    },
+    "system.runtime.compilerservices.unsafe/4.4.0-preview1-25305-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-keqowXVd5U8XgkRrZwiA4YCCW4TiuRyjl3Yld+12MW4tBXenjVEAiEyMxI/OnrHKUwvF7IKVE9DjHG+rBg5abg==",
+      "path": "system.runtime.compilerservices.unsafe/4.4.0-preview1-25305-02",
+      "hashPath": "system.runtime.compilerservices.unsafe.4.4.0-preview1-25305-02.nupkg.sha512"
+    },
+    "system.runtime.serialization.formatters/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KESDFO7GHK2XWAH5/HoNgxcZ+nymU/eFaZqt93w577jHS8n3c/iOoCkBYQjJxQHvHQvBUvhdEO9bdkUIismD2g==",
+      "path": "system.runtime.serialization.formatters/4.3.0",
+      "hashPath": "system.runtime.serialization.formatters.4.3.0.nupkg.sha512"
+    },
+    "system.runtime.serialization.primitives/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UdlzjKnD1xsGbQPC3kQXZaInWPZqb6UJVQzVipnWVXeT2QyLMigePOH+gcnCsxBojdxiOQyhBCXCKBSK7GaarQ==",
+      "path": "system.runtime.serialization.primitives/4.3.0",
+      "hashPath": "system.runtime.serialization.primitives.4.3.0.nupkg.sha512"
+    },
+    "system.text.encoding.codepages/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-53g8et5KB43SY9vekOfcg4f4TDGCdY076IVTyrF0hGQW0e1j44haDufWKNFlo+9Oi1d2ExvK9A4Uh/0NnnjsxA==",
+      "path": "system.text.encoding.codepages/4.3.0",
+      "hashPath": "system.text.encoding.codepages.4.3.0.nupkg.sha512"
+    },
+    "system.valuetuple/4.4.0-preview1-25305-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZIMgyJ3ZcCgfEHpC4YkQi+X6zbabStfa0bmGqTpJ3cVhuD4RtuAneTlscz7wn7HmRJq+zza9oz6EzoUbM/dgIw==",
+      "path": "system.valuetuple/4.4.0-preview1-25305-02",
+      "hashPath": "system.valuetuple.4.4.0-preview1-25305-02.nupkg.sha512"
+    },
+    "system.xml.xmldocument/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bJAfcIy4CAbJcjIZECLaVQgaoqa2kl3gAqgLPUe2iQFyVeR1VGmWhBWyFxdt2wiuxwAJw/0IinqGNbKicwu+Ng==",
+      "path": "system.xml.xmldocument/4.3.0",
+      "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
+    },
+    "system.xml.xpath/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-J16DPCYuJ+mT/rW6gMDKT10TvLcF33iv144ehZJXCyuGWE7+fz0kCqQcP2f2pQex6op4D+7kleri+aoa4NSpYQ==",
+      "path": "system.xml.xpath/4.3.0",
+      "hashPath": "system.xml.xpath.4.3.0.nupkg.sha512"
+    },
+    "system.xml.xpath.xdocument/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-O4bL5rA4lbWWM6oqauBENJe0ORRGOAPuRY496X2uOjUzm0gNcoVqft8WBvfnpj/BPjveahCZi3a04Z/SO61biw==",
+      "path": "system.xml.xpath.xdocument/4.3.0",
+      "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    },
+    "apogee/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "apogee.openddl/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

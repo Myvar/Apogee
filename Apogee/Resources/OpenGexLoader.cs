@@ -90,6 +90,24 @@ namespace Apogee.Resources
                     }
                 }
             }
+
+            int c = 0;
+            
+            foreach (var structure in geometry.Body[0].Body)
+            {
+                if (structure.Type == "VertexArray")
+                {
+                    if (structure.Arguments["attrib"].ToString() == "texcoord")
+                    {
+                        foreach (List<object> o in (List<object>)structure.Body[0].Value)
+                        {
+                            var p = new Vector2f((float)o[0], (float)o[1]);
+                            re[c].TexCoord = p;
+                            c++;
+                        }
+                    }
+                }
+            }
             
             
             return re.ToArray();

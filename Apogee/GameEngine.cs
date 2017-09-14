@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Globalization;
 using System.IO;
+using System.Reflection;
+using System.Runtime.Loader;
 using System.Threading;
 using Apogee.API;
 using Apogee.Engine.Core;
@@ -15,26 +19,38 @@ namespace Apogee
     public class GameEngine
     {
         public string GameDirectory { get; set; }
+        public string Dll { get; set; }
         public Assets Assets { get; set; }
         public GameWindow Window { get; set; }
         public Input Input { get; set; }
         public GuiEngine GuiEngine { get; set; }
+        public Assembly Game { get; set; }
 
+
+        private DateTime _lastChange;
 
         /// <summary>
         /// Init the GameEngine
         /// </summary>
         /// <param name="gd">The Directory containing the game data</param>
-        public GameEngine(string gd)
+        public GameEngine(string gd, string dll)
         {
             GameDirectory = Path.GetFullPath(gd);
+            Dll = Path.GetFullPath(dll);
+
+            Process.Start(new ProcessStartInfo("/usr/bin/dotnet", "build")
+            {
+                WorkingDirectory = GameDirectory
+            }).WaitForExit();
 
             if (!Directory.Exists(gd))
             {
                 Terminal.Debug("Directory does not exist: " + GameDirectory);
                 return;
             }
-            
+
+            _lastChange = new FileInfo(Dll).LastWriteTime;
+
             //init
             Terminal.Debug($"GameDirectory: {GameDirectory}");
             Terminal.Debug($"WorkingDirectory: {Directory.GetCurrentDirectory()}");
@@ -42,9 +58,12 @@ namespace Apogee
             Terminal.Debug($"Loading Assets");
             Assets = new Assets(this);
 
+            Game = AssemblyLoadContext.Default.LoadFromAssemblyPath(Dll);
+
+
             Terminal.Debug($"Loading Window");
             Window = new GameWindow(800, 600);
-           
+
             Terminal.Debug(GL.GetString(StringName.Version));
         }
 
@@ -75,7 +94,7 @@ namespace Apogee
             Terminal.Log("Starting Game");
 
             //testing
-            MainScene = Assets.Load<Scene>("mainscene.cs");
+            MainScene = GetMainScene();
             var en = this;
             MainScene.LoadGameEngine(ref en);
 
@@ -83,10 +102,10 @@ namespace Apogee
             Window.Load += OnWindowOnLoad;
             Window.RenderFrame += OnRender;
             Window.UpdateFrame += OnUpdate;
-            
-            
+
+
             Input = new Input(Window);
-            
+
 
             InitOpenGL();
             ImGUIEngine.Install(Window);
@@ -95,12 +114,33 @@ namespace Apogee
 
             GuiEngine = new GuiEngine();
 
+            Window.WindowState = WindowState.Maximized;
+
             Window.TargetRenderFrequency = 400;
             Window.VSync = VSyncMode.Off;
             Window.Title = "Apogee Engine: --- FPS";
             Window.Run(60);
 
             return this;
+        }
+
+
+        public void Reload()
+        {
+            if (_lastChange == new FileInfo(Dll).LastWriteTime) return;
+        }
+
+        private Scene GetMainScene()
+        {
+            foreach (var type in Game.GetTypes())
+            {
+                if (type.GetTypeInfo().GetCustomAttribute<EntryScene>() != null)
+                {
+                    return (Scene) Activator.CreateInstance(type.GetTypeInfo().AsType());
+                }
+            }
+
+            return null;
         }
 
         private void OnWindowOnLoad(object sender, EventArgs args)
@@ -130,10 +170,12 @@ namespace Apogee
             Window.SwapBuffers();
         }
 
-        private bool WireFrame = false;
-        
+        public bool WireFrame = false;
+
         public void OnUpdate(object sender, FrameEventArgs fea)
         {
+            Reload();
+
             if (Input.IsKeyDown(Key.Z))
             {
                 if (WireFrame)
@@ -153,7 +195,7 @@ namespace Apogee
 
                 Thread.Sleep(50);
             }
-            
+
             Window.Title = "Apogee Engine: " + Math.Round(Window.RenderFrequency) + " FPS";
 
             MainScene.Update(fea.Time);

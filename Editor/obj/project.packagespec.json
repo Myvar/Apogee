@@ -12,9 +12,6 @@
     "frameworks": {
       "netcoreapp1.1": {
         "projectReferences": {
-          "/home/myvar/Desktop/GitHub/Apogee/Apogee.API/Apogee.API.csproj": {
-            "projectPath": "/home/myvar/Desktop/GitHub/Apogee/Apogee.API/Apogee.API.csproj"
-          },
           "/home/myvar/Desktop/GitHub/Apogee/Apogee/Apogee.csproj": {
             "projectPath": "/home/myvar/Desktop/GitHub/Apogee/Apogee/Apogee.csproj"
           }

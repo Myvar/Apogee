@@ -1,11 +1,19 @@
 #version 150
 
 in vec3 normal0;
+in vec2 uv0;
+uniform sampler2D sampler;
 
 void main()
 {		
-   
-    gl_FragColor = vec4(vec3(0.8, 0.8, 0.8) * clamp(dot(-vec3(0,0,1), normal0), 0.0, 1.0), 1.0);
+    vec3 color = texture(sampler, uv0).rgb;
+    
+    if(color.r == 0 && color.g == 0 && color.b == 0)
+    {
+        color = vec3(0.8, 0.8, 0.8);
+    }
+
+    gl_FragColor = vec4(color  * clamp(dot(-vec3(1,0,0), normal0), 0.0, 1.0), 1.0);
     
     //game correction
     float gamma = 2.2;

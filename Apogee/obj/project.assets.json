@@ -1960,7 +1960,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.5/_._": {}
+          "ref/netstandard1.5/System.Runtime.Loader.dll": {}
         },
         "runtime": {
           "lib/netstandard1.5/System.Runtime.Loader.dll": {}
@@ -7886,7 +7886,9 @@
       "Microsoft.CodeAnalysis.CSharp.Scripting >= 2.3.0-beta2",
       "Microsoft.NETCore.App >= 1.1.2",
       "Newtonsoft.Json >= 10.0.3",
-      "OpenTK.NETCore >= 1.1.2749.6433"
+      "OpenTK.NETCore >= 1.1.2749.6433",
+      "System.Runtime >= 4.3.0",
+      "System.Runtime.Loader >= 4.3.0"
     ]
   },
   "packageFolders": {
@@ -7943,6 +7945,14 @@
           "OpenTK.NETCore": {
             "target": "Package",
             "version": "1.1.2749.6433"
+          },
+          "System.Runtime": {
+            "target": "Package",
+            "version": "4.3.0"
+          },
+          "System.Runtime.Loader": {
+            "target": "Package",
+            "version": "4.3.0"
           }
         }
       }

@@ -1960,7 +1960,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.5/_._": {}
+          "ref/netstandard1.5/System.Runtime.Loader.dll": {}
         },
         "runtime": {
           "lib/netstandard1.5/System.Runtime.Loader.dll": {}
@@ -2624,27 +2624,15 @@
           "Microsoft.CodeAnalysis.CSharp.Scripting": "2.3.0-beta2",
           "Microsoft.NETCore.App": "1.1.2",
           "Newtonsoft.Json": "10.0.3",
-          "OpenTK.NETCore": "1.1.2749.6433"
+          "OpenTK.NETCore": "1.1.2749.6433",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Loader": "4.3.0"
         },
         "compile": {
           "bin/placeholder/Apogee.dll": {}
         },
         "runtime": {
           "bin/placeholder/Apogee.dll": {}
-        }
-      },
-      "Apogee.API/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v1.4",
-        "dependencies": {
-          "Apogee": "1.0.0",
-          "NETStandard.Library": "1.6.1"
-        },
-        "compile": {
-          "bin/placeholder/Apogee.API.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Apogee.API.dll": {}
         }
       },
       "Apogee.OpenDDL/1.0.0": {
@@ -7910,11 +7898,6 @@
       "path": "../Apogee/Apogee.csproj",
       "msbuildProject": "../Apogee/Apogee.csproj"
     },
-    "Apogee.API/1.0.0": {
-      "type": "project",
-      "path": "../Apogee.API/Apogee.API.csproj",
-      "msbuildProject": "../Apogee.API/Apogee.API.csproj"
-    },
     "Apogee.OpenDDL/1.0.0": {
       "type": "project",
       "path": "../Apogee.OpenDDL/Apogee.OpenDDL.csproj",
@@ -7924,7 +7907,6 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v1.1": [
       "Apogee >= 1.0.0",
-      "Apogee.API >= 1.0.0",
       "ImGui.NET >= 0.2.1",
       "Microsoft.NETCore.App >= 1.1.2"
     ]
@@ -7946,9 +7928,6 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "/home/myvar/Desktop/GitHub/Apogee/Apogee.API/Apogee.API.csproj": {
-              "projectPath": "/home/myvar/Desktop/GitHub/Apogee/Apogee.API/Apogee.API.csproj"
-            },
             "/home/myvar/Desktop/GitHub/Apogee/Apogee/Apogee.csproj": {
               "projectPath": "/home/myvar/Desktop/GitHub/Apogee/Apogee/Apogee.csproj"
             }

@@ -49,6 +49,14 @@
         "OpenTK.NETCore": {
           "target": "Package",
           "version": "1.1.2749.6433"
+        },
+        "System.Runtime": {
+          "target": "Package",
+          "version": "4.3.0"
+        },
+        "System.Runtime.Loader": {
+          "target": "Package",
+          "version": "4.3.0"
         }
       }
     }

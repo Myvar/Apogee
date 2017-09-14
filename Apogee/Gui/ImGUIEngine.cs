@@ -15,10 +15,10 @@ namespace Apogee.Gui
         {
             var style = ImGui.GetStyle();
             style.WindowPadding = new Vector2(10.0f, 10.0f);
-            style.WindowRounding = 5.0f;
-            style.ChildWindowRounding = 5.0f;
+            style.WindowRounding = 0f;
+            style.ChildWindowRounding = 0f;
             style.FramePadding = new Vector2(5.0f, 4.0f);
-            style.FrameRounding = 5.0f;
+            style.FrameRounding = 0f;
             style.ItemSpacing = new Vector2(5.0f, 5.0f);
             style.ItemInnerSpacing = new Vector2(10.0f, 10.0f);
             style.IndentSpacing = 15.0f;
@@ -26,8 +26,9 @@ namespace Apogee.Gui
             style.ScrollbarRounding = 5.0f;
             style.GrabMinSize = 7.0f;
             style.GrabRounding = 2.0f;
+            
 
-            var color1 = new Vector4(45f / 255f, 55f / 255f, 64f / 255f, 1); // nice bluegray 
+            var color1 = new Vector4(45f / 255f, 55f / 255f, 64f / 255f, 0.9f); // nice bluegray 
             var color2 = new Vector4(85f / 255f, 101f / 255f, 115f / 255f, 1); // light fray
             var color3 = new Vector4(36f / 255f, 36f / 255f, 36f / 255f, 1); // drawk black grayish
             var color4 = new Vector4(242f / 255f, 242f / 255f, 242f / 255f, 1); // dirst white
@@ -39,9 +40,9 @@ namespace Apogee.Gui
             style.SetColor(ColorTarget.ChildWindowBg, color2);
             style.SetColor(ColorTarget.PopupBg, color3);
             style.SetColor(ColorTarget.Border, color5);
-            style.SetColor(ColorTarget.BorderShadow, color3);
-            style.SetColor(ColorTarget.FrameBg, color1);
-            style.SetColor(ColorTarget.FrameBgHovered, color3);
+            style.SetColor(ColorTarget.BorderShadow, color5);
+            style.SetColor(ColorTarget.FrameBg, color3);
+            style.SetColor(ColorTarget.FrameBgHovered, color5);
             style.SetColor(ColorTarget.FrameBgActive, color2);
             style.SetColor(ColorTarget.TitleBg, color1);
             style.SetColor(ColorTarget.TitleBgCollapsed, color2);

@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Apogee.API\Apogee.API.csproj" />
     <ProjectReference Include="..\Apogee\Apogee.csproj" />
   </ItemGroup>
   <ItemGroup>

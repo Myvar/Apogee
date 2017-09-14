@@ -2,9 +2,9 @@
 /home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/Apogee.runtimeconfig.json
 /home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/Apogee.runtimeconfig.dev.json
 /home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/Apogee.dll
+/home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/Apogee.pdb
 /home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/Apogee.OpenDDL.dll
+/home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/Apogee.OpenDDL.pdb
 /home/myvar/Desktop/GitHub/Apogee/Apogee/obj/Debug/netcoreapp1.1/Apogee.AssemblyInfo.cs
 /home/myvar/Desktop/GitHub/Apogee/Apogee/obj/Debug/netcoreapp1.1/Apogee.dll
 /home/myvar/Desktop/GitHub/Apogee/Apogee/obj/Debug/netcoreapp1.1/Apogee.pdb
-/home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/Apogee.pdb
-/home/myvar/Desktop/GitHub/Apogee/Apogee/bin/Debug/netcoreapp1.1/Apogee.OpenDDL.pdb

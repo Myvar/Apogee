@@ -7,11 +7,24 @@ using OpenTK.Graphics.OpenGL4;
 
 namespace Apogee.Resources
 {
-    public class Texture
+    public class Texture : IResource
     {
         public int TextureID;
         public int Width, Height;
 
+        public Texture()
+        {
+            
+        }
+
+        public static IResource LoadTexture(string file)
+        {
+            using (var img = Image.Load(file))
+            {
+                return new Texture(img);
+            }
+        }
+        
         public Texture(Image<Rgba32> image)
         {
             var data = ColorArrayToByteArray(image);
@@ -20,7 +33,7 @@ namespace Apogee.Resources
             Height = image.Height;
 
 
-           // GL.Hint(HintTarget.PerspectiveCorrectionHint, HintMode.Nicest);
+            GL.Hint(HintTarget.PerspectiveCorrectionHint, HintMode.Nicest);
 
             TextureID = GL.GenTexture();
 

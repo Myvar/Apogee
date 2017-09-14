@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using ImageSharp;
 
 namespace Apogee.Resources
 {
@@ -29,6 +31,11 @@ namespace Apogee.Resources
             {
                 return (T)Model.LoadModel(Path.Combine(GameDirectory, file));
             }
+            
+            if (typeof(T) == typeof(Texture))
+            {
+                return (T)Texture.LoadTexture(Path.Combine(GameDirectory, file));
+            }
 
             return new T();
         }
@@ -45,6 +52,37 @@ namespace Apogee.Resources
                 typeof(Scene));
             
             return c as Scene;
+        }
+
+        public List<string> IndexModels()
+        {
+            var outp = new List<string>();
+            IterateDirectory(new List<string>()
+            {
+                ".ogex"
+            }, GameDirectory, outp);
+
+            return outp;
+        }
+
+        private void IterateDirectory(List<string> extentions, string dir, List<string> outp)
+        {
+            foreach (var file in Directory.GetFiles(dir))
+            {
+                foreach (var extention in extentions)
+                {
+                    if (file.EndsWith(extention))
+                    {
+                        outp.Add(file);
+                        break;
+                    }
+                }
+            }
+
+            foreach (var directory in Directory.GetDirectories(dir))
+            {
+                IterateDirectory(extentions, directory, outp);
+            }
         }
     }
 }
