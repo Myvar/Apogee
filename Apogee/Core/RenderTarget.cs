@@ -58,14 +58,26 @@ namespace Apogee.Core
             }
         }
 
-        public void Bind()
+        public void Dispose()
+        {
+            GL.DeleteTexture(Texture);
+            GL.DeleteBuffer(DepthBuffer);
+            GL.DeleteBuffer(FrameBuffer);
+        }
+
+        public void Bind(OpenTK.Color c)
         {
             GL.BindFramebuffer(FramebufferTarget.Framebuffer, FrameBuffer);
             GL.Viewport(0, 0, Width, Height);
-            GL.ClearColor(OpenTK.Color.Black);
+            GL.ClearColor(c);
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
         }
-        
+
+        public void Bind()
+        {
+            Bind(OpenTK.Color.Black);
+        }
+
         public void BindMainWindow()
         {
             GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
@@ -75,7 +87,7 @@ namespace Apogee.Core
         public void Clear()
         {
             GL.ClearColor(OpenTK.Color.Black);
-                        GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
         }
     }
 }
