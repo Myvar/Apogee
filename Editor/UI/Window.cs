@@ -19,6 +19,8 @@ namespace Editor.UI
             new MenuBar(),
             new ObjectEditor(),
             new ModelIndex(),
+            new TextureIndex(),
+            new SceneManager()
         };
     }
 }

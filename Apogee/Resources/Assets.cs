@@ -64,6 +64,18 @@ namespace Apogee.Resources
 
             return outp;
         }
+        
+        public List<string> IndexTextures()
+        {
+            var outp = new List<string>();
+            IterateDirectory(new List<string>()
+            {
+                ".png",
+                ".jpg",
+            }, GameDirectory, outp);
+
+            return outp;
+        }
 
         private void IterateDirectory(List<string> extentions, string dir, List<string> outp)
         {
