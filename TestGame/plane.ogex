@@ -1,0 +1,59 @@
+Metric (key = "distance") {float {1.0}}
+Metric (key = "angle") {float {1.0}}
+Metric (key = "time") {float {1.0}}
+Metric (key = "up") {string {"z"}}
+
+GeometryNode $node1
+{
+	Name {string {"Plane"}}
+	ObjectRef {ref {$geometry1}}
+
+	Transform
+	{
+		float[16]
+		{
+			{1.0, 0.0, 0.0, 0.0,
+			 0.0, 1.0, 0.0, 0.0,
+			 0.0, 0.0, 1.0, 0.0,
+			 0.0, 0.0, 0.0, 1.0}
+		}
+	}
+}
+
+GeometryObject $geometry1		// Plane
+{
+	Mesh (primitive = "triangles")
+	{
+		VertexArray (attrib = "position")
+		{
+			float[3]		// 4
+			{
+				{-1.0, -1.0, 0.0}, {1.0, -1.0, 0.0}, {1.0, 1.0, 0.0}, {-1.0, 1.0, 0.0}
+			}
+		}
+
+		VertexArray (attrib = "normal")
+		{
+			float[3]		// 4
+			{
+				{0.0, 0.0, 1.0}, {0.0, 0.0, 1.0}, {0.0, 0.0, 1.0}, {0.0, 0.0, 1.0}
+			}
+		}
+
+		VertexArray (attrib = "texcoord")
+		{
+			float[2]		// 4
+			{
+				{0.0, 0.0}, {1.0, 0.0}, {1.0, 1.0}, {0.0, 1.0}
+			}
+		}
+
+		IndexArray
+		{
+			unsigned_int32[3]		// 2
+			{
+				{0, 1, 2}, {0, 2, 3}
+			}
+		}
+	}
+}

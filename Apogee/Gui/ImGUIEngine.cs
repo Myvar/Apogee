@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using System.Runtime.InteropServices;
 using ImGuiNET;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
@@ -9,7 +10,7 @@ using Vector4 = System.Numerics.Vector4;
 
 namespace Apogee.Gui
 {
-    public static class ImGUIEngine
+    public static class ImGuiEngine
     {
         public static void Skin()
         {
@@ -26,7 +27,7 @@ namespace Apogee.Gui
             style.ScrollbarRounding = 5.0f;
             style.GrabMinSize = 7.0f;
             style.GrabRounding = 2.0f;
-            
+
 
             var color1 = new Vector4(45f / 255f, 55f / 255f, 64f / 255f, 0.9f); // nice bluegray 
             var color2 = new Vector4(85f / 255f, 101f / 255f, 115f / 255f, 1); // light fray
@@ -37,7 +38,7 @@ namespace Apogee.Gui
             style.SetColor(ColorTarget.Text, color4);
             //style.SetColor(ColorTarget.TextDisabled, color5);
             style.SetColor(ColorTarget.WindowBg, color1);
-            style.SetColor(ColorTarget.ChildWindowBg, color2);
+            //style.SetColor(ColorTarget.ChildWindowBg, color2);
             style.SetColor(ColorTarget.PopupBg, color3);
             style.SetColor(ColorTarget.Border, color5);
             style.SetColor(ColorTarget.BorderShadow, color5);
@@ -47,12 +48,12 @@ namespace Apogee.Gui
             style.SetColor(ColorTarget.TitleBg, color1);
             style.SetColor(ColorTarget.TitleBgCollapsed, color2);
             style.SetColor(ColorTarget.TitleBgActive, color3);
-            // style.SetColor(ColorTarget.MenuBarBg, color3);
+            style.SetColor(ColorTarget.MenuBarBg, color3);
             style.SetColor(ColorTarget.ScrollbarBg, color2);
             style.SetColor(ColorTarget.ScrollbarGrab, color3);
             style.SetColor(ColorTarget.ScrollbarGrabHovered, color4);
             style.SetColor(ColorTarget.ScrollbarGrabActive, color3);
-            style.SetColor(ColorTarget.ComboBg, color2);
+            //style.SetColor(ColorTarget.ComboBg, color2);
             style.SetColor(ColorTarget.CheckMark, color4);
             style.SetColor(ColorTarget.SliderGrab, color4);
             style.SetColor(ColorTarget.SliderGrabActive, color4);
@@ -97,17 +98,24 @@ namespace Apogee.Gui
         private static int s_fontTexture;
         private static float _wheelPosition;
         private static float _scaleFactor;
+        private static float _scaleMultiplyer = 1.8f;
 
-        public static void Install(GameWindow w)
+        public static unsafe void Install()
         {
-            int desiredWidth = 600;
-            w.KeyDown += new EventHandler<KeyboardKeyEventArgs>(OnKeyDown);
-            w.KeyUp += new EventHandler<KeyboardKeyEventArgs>(OnKeyUp);
-            w.KeyPress += new EventHandler<KeyPressEventArgs>(OnKeyPress);
+            int desiredWidth = GameEngine.Window.Height;
+            GameEngine.Window.KeyDown += OnKeyDown;
+            GameEngine.Window.KeyUp += OnKeyUp;
+            GameEngine.Window.KeyPress += OnKeyPress;
 
-            _scaleFactor = w.Width / desiredWidth;
+            _scaleFactor = GameEngine.Window.Width / desiredWidth;
 
-            ImGui.GetIO().FontAtlas.AddDefaultFont();
+            _scaleFactor *= _scaleMultiplyer;
+
+            //GameEngine.Window.Context.LoadAll();
+
+            //ImGuiNative.igCreateContext();
+
+            // ImGui.GetIO().FontAtlas.AddDefaultFont();
 
             SetOpenTKKeyMappings();
             CreateDeviceObjects();
@@ -200,14 +208,14 @@ namespace Apogee.Gui
         }
 
 
-        public static unsafe void RenderFrame(Action e, GameEngine ge)
+        public static unsafe void RenderFrame(Action e)
         {
             IO io = ImGui.GetIO();
-            io.DisplaySize = new System.Numerics.Vector2(ge.Window.Width, ge.Window.Height);
+            io.DisplaySize = new System.Numerics.Vector2(GameEngine.Window.Width, GameEngine.Window.Height);
             io.DisplayFramebufferScale = new System.Numerics.Vector2(_scaleFactor);
-            io.DeltaTime = (1f / 60f);
+            io.DeltaTime = (1f / (float) GameEngine.Window.RenderFrequency);
 
-            UpdateImGuiInput(io, ge);
+            UpdateImGuiInput(io);
 
             ImGui.NewFrame();
 
@@ -216,25 +224,21 @@ namespace Apogee.Gui
             ImGui.Render();
 
             DrawData* data = ImGui.GetDrawData();
-            RenderImDrawData(data, ge);
+            RenderImDrawData(data);
         }
 
 
-        private static unsafe void UpdateImGuiInput(IO io, GameEngine ge)
+        private static unsafe void UpdateImGuiInput(IO io)
         {
             MouseState cursorState = Mouse.GetCursorState();
             MouseState mouseState = Mouse.GetState();
 
-            //if (ge.Window.mo.Contains(ge.Window.Mouse.X, ge.Window.Mouse.Y))
-            {
-                var windowPoint = new System.Numerics.Vector2(ge.Window.Mouse.X, ge.Window.Mouse.Y);
-                io.MousePosition =
-                    windowPoint; //new System.Numerics.Vector2(windowPoint.X / io.DisplayFramebufferScale.X, windowPoint.Y / io.DisplayFramebufferScale.Y);
-            }
-            //else
-            {
-                //        io.MousePosition = new System.Numerics.Vector2(-1f, -1f);
-            }
+
+            var windowPoint = new System.Numerics.Vector2(GameEngine.Window.Mouse.X, GameEngine.Window.Mouse.Y) /
+                              new Vector2(_scaleMultiplyer);
+            io.MousePosition =
+                windowPoint; //new System.Numerics.Vector2(windowPoint.X / io.DisplayFramebufferScale.X, windowPoint.Y / io.DisplayFramebufferScale.Y);
+
 
             io.MouseDown[0] = mouseState.LeftButton == ButtonState.Pressed;
             io.MouseDown[1] = mouseState.RightButton == ButtonState.Pressed;
@@ -246,12 +250,12 @@ namespace Apogee.Gui
             io.MouseWheel = delta;
         }
 
-        private static unsafe void RenderImDrawData(DrawData* draw_data, GameEngine ge)
+        private static unsafe void RenderImDrawData(DrawData* draw_data)
         {
             // Rendering
             int display_w, display_h;
-            display_w = ge.Window.Width;
-            display_h = ge.Window.Height;
+            display_w = GameEngine.Window.Width;
+            display_h = GameEngine.Window.Height;
 
 
             GL.Viewport(0, 0, display_w, display_h);
@@ -329,9 +333,11 @@ namespace Apogee.Gui
                         {
                             indices[i] = idx_buffer[i];
                         }
+
                         GL.DrawElements(PrimitiveType.Triangles, (int) pcmd->ElemCount, DrawElementsType.UnsignedShort,
                             new IntPtr(idx_buffer));
                     }
+
                     idx_buffer += pcmd->ElemCount;
                 }
             }

@@ -1,23 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="ImageSharp" Version="1.0.0-alpha9-00182" />
-    <PackageReference Include="ImageSharp.Drawing" Version="1.0.0-alpha9-00177" />
-    <PackageReference Include="ImGui.NET" Version="0.2.1" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="2.3.0-beta2" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="ImGui.NET" Version="0.4.4" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="2.8.2" />
+    <PackageReference Include="Nett" Version="0.9.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="OpenTK.NETCore" Version="1.1.2749.6433" />
-    <PackageReference Include="System.Runtime" Version="4.3.0" />
-    <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0004" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Apogee.OpenDDL\Apogee.OpenDDL.csproj">
-      <Project>{33E8C2E4-8935-4024-B2A7-49CB4DFB43D6}</Project>
-      <Name>Apogee.OpenDDL</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\Apogee.OpenDDL\Apogee.OpenDDL.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ImGui.NET\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="ImGui.NET\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="ImGui.NET\**" />
   </ItemGroup>
 </Project>

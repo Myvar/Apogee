@@ -1,10 +1,10 @@
-namespace Apogee.Core
+﻿namespace Apogee.Core
 {
     public class Vertex
     {
         public static int Size = 14;
 
-        public Vertex(Vector3f position, Vector2f texCoord, Vector3f color, Vector3f normal, Vector3f tangent)
+        public Vertex(Vec3 position, Vec2 texCoord, Vec3 color, Vec3 normal, Vec3 tangent)
         {
             this.Position = position;
             this.TexCoord = texCoord;
@@ -14,31 +14,31 @@ namespace Apogee.Core
 
         }
 
-        public Vertex(Vector3f position) : this(
+        public Vertex(Vec3 position) : this(
             position,
-            new Vector2f(0, 0),
-            new Vector3f(0.5f, 0.5f, 0.5f),
-            new Vector3f(0, 0, 0),
-            new Vector3f(0, 0, 0))
+            new Vec2(0, 0),
+            new Vec3(0.5f, 0.5f, 0.5f),
+            new Vec3(0, 0, 0),
+            new Vec3(0, 0, 0))
         {
 
         }
         
-        public Vertex(Vector3f position, Vector2f texCoord) : this(
+        public Vertex(Vec3 position, Vec2 texCoord) : this(
             position,
             texCoord,
-            new Vector3f(0.5f, 0.5f, 0.5f),
-            new Vector3f(0, 0, 0),
-            new Vector3f(0, 0, 0))
+            new Vec3(0.5f, 0.5f, 0.5f),
+            new Vec3(0, 0, 0),
+            new Vec3(0, 0, 0))
         {
 
         }
 
-        public Vector3f Position { get; set; }
-        public Vector2f TexCoord { get; set; }
-        public Vector3f Color { get; set; }
-        public Vector3f Normal { get; set; }
-        public Vector3f Tangent { get; set; }
+        public Vec3 Position { get; set; }
+        public Vec2 TexCoord { get; set; }
+        public Vec3 Color { get; set; }
+        public Vec3 Normal { get; set; }
+        public Vec3 Tangent { get; set; }
 
     }
 }

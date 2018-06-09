@@ -1,8 +1,8 @@
-using System;
-using Apogee.Engine.Core;
+﻿using System;
 
 namespace Apogee.Core
 {
+   
     public class Quaternion
     {
         public float X, Y, Z, W;
@@ -17,7 +17,7 @@ namespace Apogee.Core
 
         public float Length()
         {
-            return (float)Math.Sqrt(X * X + Y * Y + Z * Z + W * W);
+            return MathF.Sqrt(X * X + Y * Y + Z * Z + W * W);
         }
 
         public Quaternion Normalize()
@@ -47,7 +47,7 @@ namespace Apogee.Core
             return new Quaternion(x, y, z, w);
         }
 
-        public Quaternion Mul(Vector3f r)
+        public Quaternion Mul(Vec3 r)
         {
             float w = -X * r.X - Y * r.Y - Z * r.Z;
             float x = W * r.X + Y * r.Z - Z * r.Y;
@@ -57,7 +57,7 @@ namespace Apogee.Core
             return new Quaternion(x, y, z, w);
         }
 
-         public static Quaternion operator *(Quaternion c1, Quaternion c2)
+        public static Quaternion operator *(Quaternion c1, Quaternion c2)
         {
             return c1.Mul(c2);
         }

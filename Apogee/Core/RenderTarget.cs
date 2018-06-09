@@ -53,7 +53,7 @@ namespace Apogee.Core
 
             if (GL.CheckFramebufferStatus(FramebufferTarget.Framebuffer) != FramebufferErrorCode.FramebufferComplete)
             {
-                Terminal.Debug("Failed to create render target");
+                //Terminal.Debug("Failed to create render target");
                 Environment.Exit(1);
             }
         }
@@ -78,10 +78,10 @@ namespace Apogee.Core
             Bind(OpenTK.Color.Black);
         }
 
-        public void BindMainWindow()
+        public static void BindMainWindow()
         {
             GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
-            GL.Viewport(0, 0, Width, Height);
+            GL.Viewport(0, 0, GameEngine.Window.Width, GameEngine.Window.Height);
         }
 
         public void Clear()
