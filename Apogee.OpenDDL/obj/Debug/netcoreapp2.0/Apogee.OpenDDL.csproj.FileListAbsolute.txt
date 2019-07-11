@@ -1,8 +1,0 @@
-/home/myvar/GitHub/Apogee/Apogee.OpenDDL/bin/Debug/netcoreapp2.0/Apogee.OpenDDL.deps.json
-/home/myvar/GitHub/Apogee/Apogee.OpenDDL/bin/Debug/netcoreapp2.0/Apogee.OpenDDL.dll
-/home/myvar/GitHub/Apogee/Apogee.OpenDDL/bin/Debug/netcoreapp2.0/Apogee.OpenDDL.pdb
-/home/myvar/GitHub/Apogee/Apogee.OpenDDL/obj/Debug/netcoreapp2.0/Apogee.OpenDDL.csproj.CoreCompileInputs.cache
-/home/myvar/GitHub/Apogee/Apogee.OpenDDL/obj/Debug/netcoreapp2.0/Apogee.OpenDDL.AssemblyInfoInputs.cache
-/home/myvar/GitHub/Apogee/Apogee.OpenDDL/obj/Debug/netcoreapp2.0/Apogee.OpenDDL.AssemblyInfo.cs
-/home/myvar/GitHub/Apogee/Apogee.OpenDDL/obj/Debug/netcoreapp2.0/Apogee.OpenDDL.dll
-/home/myvar/GitHub/Apogee/Apogee.OpenDDL/obj/Debug/netcoreapp2.0/Apogee.OpenDDL.pdb
