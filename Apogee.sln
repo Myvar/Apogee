@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apogee", "Apogee\Apogee.csproj", "{A0332984-DF83-4AE4-8538-6E0417DE88FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apogee.OpenDDL", "Apogee.OpenDDL\Apogee.OpenDDL.csproj", "{77B46FCD-5DC4-454A-942A-E0A3EC15E2BE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,9 +12,5 @@ Global
 		{A0332984-DF83-4AE4-8538-6E0417DE88FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0332984-DF83-4AE4-8538-6E0417DE88FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0332984-DF83-4AE4-8538-6E0417DE88FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{77B46FCD-5DC4-454A-942A-E0A3EC15E2BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77B46FCD-5DC4-454A-942A-E0A3EC15E2BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77B46FCD-5DC4-454A-942A-E0A3EC15E2BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77B46FCD-5DC4-454A-942A-E0A3EC15E2BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

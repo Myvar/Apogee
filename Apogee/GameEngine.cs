@@ -1,90 +1,88 @@
-﻿using Apogee.Core;
-using Apogee.Gui;
-using OpenTK;
-using OpenTK.Graphics.OpenGL;
+using System;
+using Apogee.Engine;
+using Veldrid;
+using Veldrid.Sdl2;
+using Veldrid.StartupUtilities;
 
 namespace Apogee
 {
-    public static class GameEngine
+    public class GameEngine : IDisposable
     {
-        public static GameWindow Window { get; set; }
+        public static Sdl2Window Window;
+        public static GraphicsDevice GraphicsDevice;
 
-        
-        public static Container Container { get; set; }
+        private AGame _game;
 
-        public static void Load(string containerPath)
+
+        public GameEngine(AGame game)
         {
-            Window = new GameWindow(2000, 1600);
-            Container = new Container(containerPath);
+            _game = game;
+            var windowCI = new WindowCreateInfo()
+            {
+                X = 100,
+                Y = 100,
+                WindowWidth = 960,
+                WindowHeight = 540,
+                WindowTitle = "Apogee"
+            };
+            Window = VeldridStartup.CreateWindow(ref windowCI);
+            Window.Resized += () =>
+                GraphicsDevice.MainSwapchain.Resize((uint) Window.Width, (uint) Window.Height);
+
+            Window.KeyDown += e =>
+            {
+                if (e.Key == Key.Escape)
+                {
+                    Stop();
+                }
+            };
+
+            var options = new GraphicsDeviceOptions(
+                debug: false,
+                swapchainDepthFormat: PixelFormat.R16_UNorm,
+                syncToVerticalBlank: true,
+                resourceBindingModel: ResourceBindingModel.Improved,
+                preferDepthRangeZeroToOne: true,
+                preferStandardClipSpaceYDirection: true);
+            GraphicsDevice = VeldridStartup.CreateGraphicsDevice(Window, options, GraphicsBackend.OpenGL);
         }
 
-        public static void Start()
+        public void Stop()
         {
-            InitOpenGL();
+            _game.CleanUp();
+            GraphicsDevice.Dispose();
 
-
-            Container.Update(true);
-
-            _input = new Input(Window);
-
-            //events
-            Window.Load += (sender, args) => { };
-            Window.Unload += (sender, args) => { };
-
-            Window.Resize += (sender, args) => { GL.Viewport(0, 0, Window.Width, Window.Height); };
-
-            Window.Closing += (sender, args) => { };
-            Window.Closed += (sender, args) => { };
-
-            Window.RenderFrame += WindowOnRenderFrame;
-            Window.UpdateFrame += WindowOnUpdateFrame;
-
-
-            //start
-            Window.TargetRenderFrequency = 200;
-            Window.TargetUpdateFrequency = 128;
-
-            //Window.WindowState = WindowState.Fullscreen;
-            ImGuiEngine.Install();
-            Window.Run();
+            Environment.Exit(0);
         }
 
-        private static Input _input;
-
-        private static void WindowOnUpdateFrame(object sender, FrameEventArgs e)
+        public void Start()
         {
-            Window.Title = Window.RenderFrequency.ToString("N");
-            Container.Camera.Input(_input, e.Time);
+            _game.Load();
+
+            while (Window.Exists)
+            {
+                Window.PumpEvents();
+
+                if (Window.Exists)
+                {
+                    Draw();
+                }
+            }
+
+            Stop();
         }
 
-
-        private static void InitOpenGL()
+        private void Draw()
         {
-            GL.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-
-            //culling
-            GL.FrontFace(FrontFaceDirection.Cw);
-            GL.CullFace(CullFaceMode.Back);
-            GL.Enable(EnableCap.CullFace);
-
-            //Depth
-            GL.Enable(EnableCap.DepthTest);
-            GL.Enable(EnableCap.DepthClamp);
-
-            GL.Enable(EnableCap.Texture2D);
+            _game.Update();
+            _game.Render();
+            GraphicsDevice.SwapBuffers();
         }
 
-        private static void WindowOnRenderFrame(object sender, FrameEventArgs e)
+        public void Dispose()
         {
-            GL.ClearColor(0.2f, 0.2f, 0.2f, 1);
-            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-
-            RenderTarget.BindMainWindow();
-            Container.Update();
-
-            ImGuiEngine.RenderFrame(Editor.Instance.Draw);
-
-            Window.SwapBuffers();
+            _game.CleanUp();
+            GraphicsDevice.Dispose();
         }
     }
 }

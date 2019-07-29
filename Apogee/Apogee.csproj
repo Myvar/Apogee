@@ -1,30 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="ImGui.NET" Version="0.4.4" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="2.8.2" />
-    <PackageReference Include="Nett" Version="0.9.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="OpenTK.NETCore" Version="1.1.2749.6433" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0004" />
-    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Apogee.OpenDDL\Apogee.OpenDDL.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="ImGui.NET\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Remove="ImGui.NET\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="ImGui.NET\**" />
-  </ItemGroup>
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <LangVersion>7.3</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="CjClutter.ObjLoader" Version="1.0.0" />
+        <PackageReference Include="ImGui.NET" Version="1.70.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+        <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0006" />
+        <PackageReference Include="SolidGeometry" Version="0.3.26" />
+        <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+        <PackageReference Include="Veldrid" Version="4.6.1" />
+        <PackageReference Include="Veldrid.ImageSharp" Version="4.6.1" />
+        <PackageReference Include="Veldrid.ImGui" Version="5.69.0" />
+        <PackageReference Include="Veldrid.RenderDoc" Version="1.0.0" />
+        <PackageReference Include="Veldrid.SDL2" Version="4.6.1" />
+        <PackageReference Include="Veldrid.SPIRV" Version="1.0.9" />
+        <PackageReference Include="Veldrid.StartupUtilities" Version="4.6.1" />
+        <PackageReference Include="Veldrid.Utilities" Version="4.6.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="_res/**/*" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="_res\Models" />
+    </ItemGroup>
+
+
+  
 </Project>

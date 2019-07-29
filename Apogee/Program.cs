@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Apogee.Components;
-using Apogee.Core;
+﻿using Apogee.Test;
 
 namespace Apogee
 {
@@ -10,11 +6,8 @@ namespace Apogee
     {
         static void Main(string[] args)
         {
-            GameEngine.Load("../TestGame");
-            GameEngine.Container.LoadFile(Path.Combine(Container.AssetsPath, "test.map"));
-            GameEngine.Start();
+            var ge = new GameEngine(new TestGame());
+            ge.Start();
         }
-
-        private static int _counter = 0;
     }
 }

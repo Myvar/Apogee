@@ -1,21 +1,20 @@
-﻿using System;
-using System.IO;
-using System.Security.Cryptography;
+using System;
 
 namespace Apogee
 {
-    public class Utils
+    public static class Utils
     {
-        public static string CalculateMd5(string filename)
+        public static float ConvertToRadians(float angle)
         {
-            using (var md5 = MD5.Create())
-            {
-                using (var stream = File.OpenRead(filename))
-                {
-                    var hash = md5.ComputeHash(stream);
-                    return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
-                }
-            }
+            return (MathF.PI / 180) * angle;
+        }
+    }
+
+    public static class NumericExtensions
+    {
+        public static float ToRadians(this float val)
+        {
+            return (MathF.PI / 180) * val;
         }
     }
 }
