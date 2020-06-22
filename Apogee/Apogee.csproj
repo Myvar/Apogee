@@ -1,37 +1,26 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
+
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>netcoreapp2.2</TargetFramework>
-        <LangVersion>7.3</LangVersion>
+        <TargetFramework>netcoreapp5.0</TargetFramework>
+        <LangVersion>preview</LangVersion>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="CjClutter.ObjLoader" Version="1.0.0" />
-        <PackageReference Include="ImGui.NET" Version="1.70.0" />
-        <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-        <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0006" />
-        <PackageReference Include="SolidGeometry" Version="0.3.26" />
-        <PackageReference Include="System.ValueTuple" Version="4.5.0" />
-        <PackageReference Include="Veldrid" Version="4.6.1" />
-        <PackageReference Include="Veldrid.ImageSharp" Version="4.6.1" />
-        <PackageReference Include="Veldrid.ImGui" Version="5.69.0" />
-        <PackageReference Include="Veldrid.RenderDoc" Version="1.0.0" />
-        <PackageReference Include="Veldrid.SDL2" Version="4.6.1" />
-        <PackageReference Include="Veldrid.SPIRV" Version="1.0.9" />
-        <PackageReference Include="Veldrid.StartupUtilities" Version="4.6.1" />
-        <PackageReference Include="Veldrid.Utilities" Version="4.6.1" />
-    </ItemGroup>
+
+
 
     <ItemGroup>
-        <EmbeddedResource Include="_res/**/*" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="_res\Models" />
+        <!-- Note that this is not a "normal" ProjectReference.
+             It needs the additional 'OutputItemType' and 'ReferenceOutputAssmbly' attributes. -->
+        <ProjectReference Include="$(SolutionDir)/Apogee.Generators/Apogee.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\Apogee.Engine\Apogee.Engine.csproj" />
+        <ProjectReference Include="..\Apogee.SVFS\Apogee.SVFS.csproj" />
     </ItemGroup>
 
 
-  
+
+    <ItemGroup>
+      <PackageReference Include="JetBrains.Annotations" Version="10.2.1" />
+      <PackageReference Include="OpenTK" Version="4.0.0-pre9.1" />
+    </ItemGroup>
+    
 </Project>

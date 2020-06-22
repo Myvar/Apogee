@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp5.0</TargetFramework>
+
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="K4os.Compression.LZ4" Version="1.2.2-beta" />
+        <PackageReference Include="K4os.Compression.LZ4.Streams" Version="1.2.2-beta" />
+        <PackageReference Include="OpenTK" Version="4.0.0-pre9.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Apogee.AssetSystem\Apogee.AssetSystem.csproj" />
+      <ProjectReference Include="..\Apogee.Core\Apogee.Core.csproj" />
+    </ItemGroup>
+
+
+</Project>
