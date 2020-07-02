@@ -8,6 +8,17 @@ namespace Apogee.Core
     {
         public static int Size = 20;
 
+        public Vertex()
+        {
+            Position = Vector3F.Zero;
+            TexCoord = new Vector2F(0,0);
+            Color = Vector3F.Zero;
+            Normal = Vector3F.Zero;
+            Tangent = Vector3F.Zero;
+            JointIDS = new Vector3I();
+            JointWeights = Vector3F.Zero;
+        }
+        
         public Vertex(
             Vector3F position,
             Vector2F texCoord,

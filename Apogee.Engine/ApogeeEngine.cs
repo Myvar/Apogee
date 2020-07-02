@@ -61,15 +61,15 @@ namespace Apogee.Engine
             _texture = (BasicTexture) new BasicTextureLoader().LoadFromFile(
                 new RawAssetSource()
                 {
-                    File = "/home/myvar/GitHub/Apogee/Apogee/Assets/DevTexture/diffuse.png"
+                    File = "/home/myvar/GitHub/Apogee/Apogee/Assets/DevTexture/uv_1.png"
                 });
 
-            _mesh = (BasicMesh) new BasicMeshLoader().LoadFromFile(
+            _mesh = (BasicMesh) new BasicMeshLoaderGLTF().LoadFromFile(
                 new RawAssetSource()
                 {
-                    File = "/home/myvar/GitHub/Apogee/Apogee/Assets/man.dae"
+                    File = "/home/myvar/GitHub/Apogee/Apogee/Assets/simple_man.glb"
                 });
-            _mesh.Animator.DoAnimation(_mesh.Animation);
+            _mesh.Animator?.DoAnimation(_mesh.Animation);
             _rectShader = new BasicShader(File.ReadAllText("./Shaders/rect.glsl"));
             _quad = new BasicMesh();
             _quad.Load(
@@ -96,6 +96,58 @@ namespace Apogee.Engine
                 .InitProjection(70f, Window.Size.X, Window.Size.Y, 0.01f, 1000f);
 
             _target = new MultisampleRenderTarget(Window.Size.X, Window.Size.Y);
+
+
+            using (var img = new Bitmap(512, 512))
+            using (var g = Graphics.FromImage(img))
+            {
+                g.Clear(Color.White);
+
+                var ColourValues =
+                    new string[]
+                    {
+                        "FF0000", "00FF00", "0000FF", "FFFF00", "FF00FF", "00FFFF", "000000",
+                        "800000", "008000", "000080", "808000", "800080", "008080", "808080",
+                        "C00000", "00C000", "0000C0", "C0C000", "C000C0", "00C0C0", "C0C0C0",
+                        "400000", "004000", "000040", "404000", "400040", "004040", "404040",
+                        "200000", "002000", "000020", "202000", "200020", "002020", "202020",
+                        "600000", "006000", "000060", "606000", "600060", "006060", "606060",
+                        "A00000", "00A000", "0000A0", "A0A000", "A000A0", "00A0A0", "A0A0A0",
+                        "E00000", "00E000", "0000E0", "E0E000", "E000E0", "00E0E0", "E0E0E0",
+                    };
+
+
+                int y = 5;
+                int x = 5;
+                for (var i = 0; i < _mesh.JointsNames.Count; i++)
+                {
+                    var name = _mesh.JointsNames[i];
+                    var cc = Color.FromArgb(
+                        int.Parse(
+                            ColourValues[i + 1],
+                            System.Globalization.NumberStyles.HexNumber));
+
+                    var c = Color.FromArgb(255, cc);
+
+                    using (var b = new SolidBrush(c))
+                    {
+                        g.FillRectangle(b, x, y, 15, 15);
+                        g.DrawString("[" + i + "]" + name, SystemFonts.DefaultFont, Brushes.Black, x + 20, y);
+                    }
+
+                    y += 20;
+
+                    if (i > 20 && x == 5)
+                    {
+                        y = 5;
+                        x = img.Width / 2;
+                    }
+                }
+
+                img.Save("test.png");
+            }
+            
+             //_mesh.Animator.Update((float) 0.01f);
         }
 
 
@@ -117,13 +169,11 @@ namespace Apogee.Engine
 
         private static void WindowOnRenderFrame(FrameEventArgs e)
         {
-            
             _target.Bind();
-            GL.ClearColor(0, 0, 0, 0);
+            GL.ClearColor(0, 0.8f, 0.8f, 1f);
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
-            
-            
+
             /*_texture.Apply(0);
 
             _rectShader.Apply();
@@ -137,13 +187,15 @@ namespace Apogee.Engine
             _texture.Apply(0);
             _rectShader.Apply();
             var trans = new Transform();
-            trans.Translation.Z = 4;
-            trans.Translation.Y = -2;
+            trans.Translation.Z = 2;
+            trans.Translation.Y = -1;
 
-            trans.Scale = new Vector3F(0.5f);
+            // trans.Scale = new Vector3F(0.5f);
 
+           // trans.Rotation.Y = 180;
             trans.Rotation.Y = _timmer;
-            trans.Rotation.X = -90f;
+            //  trans.Rotation.Z = _timmer;
+            //  trans.Rotation.X = _timmer;
 
 
             if (_mesh.JointCount > 0)
@@ -152,7 +204,7 @@ namespace Apogee.Engine
 
                 var t = _mesh.GetJointTransforms();
 
-                for (int i = 0; i < _mesh.JointCount; i++)
+                for (int i = 0; i < t.Length; i++)
                 {
                     _rectShader.SetUniform($"jointTransforms[{i}]", t[i]);
                 }
@@ -165,11 +217,11 @@ namespace Apogee.Engine
             _mesh.Draw();
 
             GL.BindFramebuffer(FramebufferTarget.DrawFramebuffer, 0);
-          
+
             GL.ClearColor(0, 0, 0, 0);
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-        
-            
+
+
             _target.Blit(Window.Size.X, Window.Size.Y);
             Window.SwapBuffers();
         }

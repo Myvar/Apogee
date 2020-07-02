@@ -1,4 +1,5 @@
 using System.IO;
+using System.Numerics;
 
 namespace Apogee.Core.Math
 {
@@ -99,6 +100,44 @@ namespace Apogee.Core.Math
             m[2][3] = x.Row2[3];
             m[3][3] = x.Row3[3];
         }
+
+    public Matrix4F(System.Numerics.Matrix4x4 x)
+        {
+            m = new float[4][];
+            for (int i = 0; i < m.Length; i++)
+            {
+                m[i] = new float[4];
+            }
+            this.InitIdentity();
+            
+        
+            /*
+            m[0][0] = x.M11;
+            m[1][0] = x.M21;
+            m[2][0] = x.M31;
+            m[3][0] = x.M41;
+
+            m[0][1] = x.M12;
+            m[1][1] = x.M22;
+            m[2][1] = x.M32;
+            m[3][1] = x.M42;
+
+            m[0][2] = x.M13;
+            m[1][2] = x.M23;
+            m[2][2] = x.M33;
+            m[3][2] = x.M43;
+
+            m[0][3] = x.M14;
+            m[1][3] = x.M24;
+            m[2][3] = x.M34;
+            m[3][3] = x.M44;*/
+            
+            m[0][0] = x.M11; m[0][1] = x.M12; m[0][2] = x.M13; m[0][3] = x.M14;
+            m[1][0] = x.M21; m[1][1] = x.M22; m[1][2] = x.M23; m[1][3] = x.M24;
+            m[2][0] = x.M31; m[2][1] = x.M32; m[2][2] = x.M33; m[2][3] = x.M34;
+            m[3][0] = x.M41; m[3][1] = x.M42; m[3][2] = x.M43; m[3][3] = x.M44;
+        }
+
 
         public Matrix4F InitIdentity()
         {

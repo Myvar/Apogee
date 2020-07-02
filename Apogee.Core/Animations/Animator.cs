@@ -60,7 +60,7 @@ namespace Apogee.Core.Animations
         {
             var name = joint.Name;
 
-            var currentLocalTransform = currentPose[name.Replace(".", "_")].Clone();
+            var currentLocalTransform = currentPose[name].Clone();
             var currentTransform = parentTransform.Clone() * currentLocalTransform.Clone();
 
 
@@ -103,7 +103,6 @@ namespace Apogee.Core.Animations
         private Dictionary<string, Matrix4F> InterpolatePoses(KeyFrame previousFrame, KeyFrame nextFrame,
             float progression)
         {
-
             var currentPose = new Dictionary<string, Matrix4F>();
             foreach (var jointName in previousFrame.Pose.Keys)
             {

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
 using Apogee.Core.Math;
 
 namespace Apogee.Core.Animations
@@ -15,6 +16,8 @@ namespace Apogee.Core.Animations
         public Matrix4F LocalBindTransform { get; set; } = new Matrix4F().InitIdentity();
         public Matrix4F InverseBindTransform { get; set; } = new Matrix4F().InitIdentity();
 
+
+        
 
         public void Read(BinaryReader reader)
         {

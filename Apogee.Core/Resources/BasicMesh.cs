@@ -33,7 +33,7 @@ namespace Apogee.Core.Resources
             RootJoint = root;
             JointCount = count;
 
-            RootJoint.CalcInverseBindTransform(new Matrix4F().InitIdentity());
+           // RootJoint.CalcInverseBindTransform(new Matrix4F().InitIdentity());
             Animator = new Animator(this);
         }
 
@@ -42,39 +42,32 @@ namespace Apogee.Core.Resources
         {
             var jointMatrices = new Matrix4F[JointCount];
             AddJointsToArray(RootJoint, ref jointMatrices);
+            _first = true;
             return jointMatrices;
         }
 
+
+        private bool _first;
         private void AddJointsToArray(Joint headJoint, ref Matrix4F[] jointMatrices)
         {
-            jointMatrices[JointsNames.IndexOf(headJoint.Name.Replace(".", "_"))] = headJoint.AnimatedTransform;
+            jointMatrices[JointsNames.IndexOf(headJoint.Name)] = headJoint.AnimatedTransform;
+            if (!_first)
+            {
+                
+             //   Console.WriteLine("[Apply] Mapping: " + headJoint.Name + " to " + JointsNames.IndexOf(headJoint.Name));
+            }
             foreach (var childJoint in headJoint.Children)
             {
                 AddJointsToArray(childJoint, ref jointMatrices);
             }
         }
 
-        public Matrix4F[] GetLocalJointTransforms()
-        {
-            var jointMatrices = new Matrix4F[JointCount];
-            AddLocalJointsToArray(RootJoint, ref jointMatrices);
-            return jointMatrices;
-        }
-
-        private void AddLocalJointsToArray(Joint headJoint, ref Matrix4F[] jointMatrices)
-        {
-            jointMatrices[JointsNames.IndexOf(headJoint.Name.Replace(".", "_"))] = headJoint.LocalBindTransform;
-            foreach (var childJoint in headJoint.Children)
-            {
-                AddLocalJointsToArray(childJoint, ref jointMatrices);
-            }
-        }
 
         public void Load(List<Vertex> vertexData, List<List<uint>> indices)
         {
             foreach (var index in indices)
             {
-                CalcTangents(vertexData, index.ToArray());
+               // CalcTangents(vertexData, index.ToArray());
             }
 
             Load(vertexData.ToArray().ToByteArray().ToList(), indices);

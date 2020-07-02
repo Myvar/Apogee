@@ -11,9 +11,9 @@ using Apogee.Core.Resources;
 
 namespace Apogee.AssetSystem.Loaders
 {
-    public class BasicMeshLoader : IAssetLoader
+    public class BasicMeshLoaderCollada : IAssetLoader
     {
-         private class ColladaStructure
+        private class ColladaStructure
         {
             public Dictionary<string, ColladaSource> Sources { get; set; } = new Dictionary<string, ColladaSource>();
             public List<ColladaMesh> Meshes { get; set; } = new List<ColladaMesh>();
@@ -49,7 +49,7 @@ namespace Apogee.AssetSystem.Loaders
             public ColladaSource(XElement element)
             {
                 //@FML @HACK @CleanUp this should realy be more oop and broken up 
-                
+
                 var fmt = new NumberFormatInfo();
                 fmt.NegativeSign = "-";
                 fmt.NumberDecimalSeparator = ".";
@@ -516,18 +516,14 @@ namespace Apogee.AssetSystem.Loaders
 
                     var decTrans = dec.ExtractTranslation();
                     var pos = new Vector3F(decTrans.X, decTrans.Y, decTrans.Z);
-                    keyFrame.Pose.Add(animation.Target, new JointTransform(pos, rot));
+                    keyFrame.Pose.Add(animation.Target, new JointTransform(pos, rot, new Vector3F(1)));
                 }
             }
 
             return (vertices, indicesList, JointsNames, file.RootJoint, file.JointCount, ani);
         }
 
-     
 
-     
-     
-        
         public IAsset LoadFromFile(RawAssetSource source)
         {
             var re = new BasicMesh();

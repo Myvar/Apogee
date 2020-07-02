@@ -6,6 +6,7 @@ namespace Apogee.Core.Animations
     public class Animation
     {
         public float Length { get; set; } //seconds
+        public string Name { get; set; }
         public List<KeyFrame> KeyFrames { get; set; } = new List<KeyFrame>();
 
         public void Write(BinaryWriter writer)

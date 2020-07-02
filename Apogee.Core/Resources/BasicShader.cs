@@ -29,7 +29,7 @@ namespace Apogee.Core.Resources
 
 
             GL.BindAttribLocation(program, 0, "position"); //this sould be generated dynamicly
-            GL.BindAttribLocation(program, 1, "Color");
+            GL.BindAttribLocation(program, 1, "VertColor");
             GL.BindAttribLocation(program, 2, "Normal");
             GL.BindAttribLocation(program, 3, "Tangent");
             GL.BindAttribLocation(program, 4, "uv");
